@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = product.new(product_params)
-    @product.user = current_user
+    @product = Product.new(product_params)
+    # @product.user = current_user
     if @product.save
       redirect_to product_path(@product)
     else
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
       {
         lat: product.latitude,
         lng: product.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+        info_window: render_to_string(partial: "info_window", locals: { product: product })
       }
     end
   end
@@ -51,16 +51,16 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.user == current_user
+    # if @product.user == current_user
       if @product.update(product_params)
         redirect_to product_path(@product)
       else
         render :edit
       end
-    else
-      flash[:alert] = "Vous n'avez pas l'autorisation !!!"
-      redirect_to product_path(@product)
-    end
+    # else
+    #   flash[:alert] = "Vous n'avez pas l'autorisation !!!"
+    #   redirect_to product_path(@product)
+    # end
   end
 
   def destroy
