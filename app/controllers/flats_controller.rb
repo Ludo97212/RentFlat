@@ -52,13 +52,6 @@ class FlatsController < ApplicationController
       lng: @flat.longitude
     }
     end
-    @bookings = @flat.bookings
-    @bookings_dates = @bookings.map do |booking|
-      {
-        from: booking.start_at,
-        to: booking.end_at
-      }
-    end
   end
 
   def edit

@@ -1,6 +1,8 @@
 require "faker"
 
-CITY = ["Paris", "Marseille", "Lyon", "Nice", "Bordeaux", "Lens", "Montpellier", "Strasbourg"]
+CITY = ["Paris", "Marseille", "Lyon", "Nice", "Bordeaux", "Lens", "Montpellier",
+        "Strasbourg", "Madrid", "Barcelone", "Seville", "Rome", "Berlin", "Munich",
+        "Porto", "Milan", "Londres"]
 ADDRESS = ["#{(27..150).to_a.sample}, place Rémy Barbe", "#{(27..150).to_a.sample}, rue Charlotte Torres", "#{(27..150).to_a.sample}, impasse Bouvier", "#{(27..150).to_a.sample}, impasse Martineau","#{(27..150).to_a.sample}, avenue Vallee", "#{(27..150).to_a.sample}, boulevard de Poirier", "#{(27..150).to_a.sample}, rue de Brunel"]
 
 # puts "DESTROY BOOKINGS"
@@ -22,7 +24,8 @@ puts "CREATE x FLATS"
                 area: (25...120).to_a.sample,
                 description: Faker::Lorem.sentence(word_count: 15),
                 daily_price: (20..90).to_a.sample,
-                address: "#{ADDRESS.sample}, #{CITY.sample}",
+                # address: "#{CITY.sample}, #{ADDRESS.sample}",
+                address: "#{CITY.sample}",
                 user_id: User.all.sample.id)
   end
 

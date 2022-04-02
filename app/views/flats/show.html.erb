@@ -1,14 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @flat.name %>
-</p>
+<div class="banner-show">
+  <h1>XXX</h1>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @flat.address %>
-</p>
+<div class="container">
+  <div class="show">
+    <div class="part">
+      <% if @flat.photo.attached? %>
+        <%= cl_image_tag @flat.photo.key, height: 500, width: 650, crop: :fill %>
+      <% else %>
+        <%= image_tag "default_flat.jpg", height: 500, width: 650, crop: :fill%>
+      <% end %>
+    </div>
+    <div class="part">
+      <h1>Informations :</h1>
+      <h2><%= @flat.name %></h2>
+      <h4>Plus en détail : <%= @flat.description %></h4>
+      <h4>Adresse : <%= @flat.address %></h4>
+      <h4>Prix/jour : <%= @flat.daily_price %>€</h4>
+      <h4>Superficie : <%= @flat.area %> m²</h4>
+    </div>
+  </div>
+
+  <div class="show">
+    <div class="part">
+      <div id="map">
+      </div>
+    </div>
+
+    <div class="part">
+       <% if @flat.user != current_user %>
+        <div class="form-wrapper">
+          <div class="card">
+            <%= simple_form_for [@flat, @booking] do |f| %>
+                <%= f.input :arrival, as: :date, html5: true %>
+                <%= f.input :departure, as: :date, html5: true %>
+                <%= f.submit "Réservez mainenant !", class: "btn btn-primary" %>
+              <% end %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to "Modifier les informations", edit_flat_path(@flat), class: "btn btn-warning" %>
+        <%= link_to "Supprimer cette offre !", flat_path(@flat), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to " Retour à l'accueil", root_path, class: "fas fa-arrow-alt-circle-left" %>
+</div>
 
 <%= link_to 'Edit', edit_flat_path(@flat) %> |
-<%= link_to 'Back', flats_path %>

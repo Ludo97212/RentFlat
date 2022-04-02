@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
-  resources :flats
-  devise_for :users
   root to: 'flats#homepage'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  devise_for :users
+
+  resources :flats do
+    resources :bookings, only: [:new, :create]
+  end
+  resources :bookings, only: [:destroy, :update]
+
+  # ---- ADDITONNAL ROUTES -----------------------#
+  get "my_flats", to: "flats#my_flats"
+  get "my_bookings", to: "bookings#my_bookings"
+  get "my_demands", to: "bookings#my_demands"
+  get "show_demand", to: "bookings#show_demand"
+  # ----------------------------------------------- #
 end
