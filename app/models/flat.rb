@@ -4,6 +4,9 @@ class Flat < ApplicationRecord
 
   belongs_to :user
   has_many :bookings, dependent: :destroy
+
+  has_one_attached :photo
+
   validates :name, :address, :daily_price, :area, :description, presence: true
   validates :area, :daily_price, numericality: { greater_than: 0, only_integer: true }
 end
