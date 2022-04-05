@@ -11,7 +11,7 @@
   </div>
   <%= f.input :daily_price %>
   <%= f.input :area %>
-  <%= f.input :description %>
+  <%= f.input :description, as: :rich_text_area, html5: true %>
 
   <div class="form-actions">
     <%= f.button :submit %>
