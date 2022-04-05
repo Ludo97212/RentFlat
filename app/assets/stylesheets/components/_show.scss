@@ -1,27 +1,40 @@
-.show {
+.map-booking {
+  margin-top: 75px;
   display: flex;
   flex-direction: row;
-  width: 100%;
-  img {
-    border-radius: 10px;
-  }
-  .part {
-    margin: 50px 50px 50px 0px;
-    // width: 50%;
-    // text-align: center;
-    h1 {
-      color: #067bc2;
+  justify-content: space-between;
+  .bloc-map {
+    width: 60%;
+    h4 {
+      text-align: center;
     }
   }
-}
-
-.show-infos {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
+  .bloc-booking {
+    width: 30%;
+  }
 }
 
 .fa-arrow-alt-circle-left {
   margin-top: 40px;
   font-size: 25px;
+}
+
+// --------------------------------
+.img-show {
+  text-align: center;
+  img {
+    width: 85%;
+    height: 500px;
+    border-radius: 2%;
+  }
+}
+// ----------------
+.infos-show {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  .text {
+  width: 85%;
+  align-items: stretch;
+  }
 }

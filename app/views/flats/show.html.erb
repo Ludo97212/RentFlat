@@ -1,37 +1,41 @@
 <div class="banner-show">
-  <h1><%= @flat.name %></h1>
+  <h1><%= @flat.name %> / <%= @flat.area %> m²</h1>
 </div>
 
 <div class="container">
-  <% if @flat.photo.attached? %>
-    <%= cl_image_tag @flat.photo.key, height: 600, width: 1200, crop: :fill %>
-  <% else %>
-    <%= image_tag "default_flat.jpg", height: 600, width: 1200, crop: :fill%>
-  <% end %>
-
-  <div style="margin-top: 25px">
-    <h1>Informations :</h1>
-    <h4><%= @flat.description %></h4>
-    <h4>Adresse : <%= @flat.address %></h4>
-    <h4>Prix/jour : <%= @flat.daily_price %>€</h4>
-    <h4>Superficie : <%= @flat.area %> m²</h4>
+  <div class="img-show">
+    <% if @flat.photo.attached? %>
+      <%= cl_image_tag @flat.photo.key, height: 600, width: 1200, crop: :fill %>
+    <% else %>
+      <%= image_tag "default_flat.jpg", crop: :fill%>
+    <% end %>
   </div>
 
-  <div class="show">
-    <div class="part">
-      <div id="map" style="width: 700px; height: 500px; border-radius: 10px;"
+  <div class="infos-show">
+    <div class="text">
+      <h1><i class="fa-solid fa-feather-pointed"></i>Informations :</h1>
+      <h4><%= @flat.description %></h4>
+      <h4><i class="fa-solid fa-money-check-dollar"></i>Prix/jour : <%= @flat.daily_price %>€</h4>
+      <h4><i class="fa-solid fa-house"></i>Superficie : <%= @flat.area %> m²</h4>
+    </div>
+  </div>
+
+  <div class="map-booking">
+    <div class="bloc-map">
+      <h4><i class="fa-solid fa-map-location-dot"></i>Adresse : <%= @flat.address %></h4>
+      <div id="map" style="margin-top: 15px; height: 500px; border-radius: 10px;"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @marker.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <div class="part" style="margin-left: 50px">
+    <div class="bloc-booking">
       <% if @flat.user != current_user %>
         <div class="new-booking" style="margin-top: 50px">
           <%= simple_form_for [@flat, @booking] do |f| %>
-            <h4>Date d'arrivée</h4>
+            <h4>Date d'arrivée <i class="fa-regular fa-face-smile-beam"></i></h4>
             <%= f.input :arrival, as: :date, html5: true, label: false %>
-            <h4>Date de départ</h4>
+            <h4>Date de départ <i class="fa-regular fa-face-sad-cry"></i></h4>
             <%= f.input :departure, as: :date, html5: true, label: false %>
             <%= f.submit "Réservez mainenant !", class: "btn btn-primary" %>
           <% end %>
@@ -47,6 +51,22 @@
 
 
 </div>
+<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
 
-<%= link_to " Retour à l'accueil", root_path, class: "fas fa-arrow-alt-circle-left" %>
+<%= link_to "Retour à l'accueil", root_path, class: "fas fa-arrow-alt-circle-left" %>
 <%= link_to 'Edit', edit_flat_path(@flat) %> |
+
+<div class="btn-group open">
+  <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> User</a>
+  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+  <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+    <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+    <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><i class="fa fa-unlock"></i> Make admin</a></li>
+  </ul>
+</div>
