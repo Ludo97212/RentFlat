@@ -107,8 +107,7 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:brand, :model, :year_of_production,
-                                :address, :price_per_day, :engine, :fuel,
-                                :kilometers, :seats, :photo)
+    params.require(:flat).permit(:name, :description, :area, :address, :daily_price,
+                                :user_id, :photo)
   end
 end
