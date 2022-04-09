@@ -28,10 +28,13 @@
   }
   .btn {
     border-radius: 15px;
-  }
-  a {
-    color: #067bc2;
+    color: #ffd100;
+    background-color: #067bc2;
     font-weight: bold;
+    border: 1px solid #095c8f;
+    &:hover {
+      background-color: #58a3d2;
+    }
   }
   .icon {
     position: absolute;
@@ -48,7 +51,8 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     height: 35px;
-    padding-left: 10px;
+    width: 300px;
+    padding: 0px 10px 0px 10px;
   }
 }
 

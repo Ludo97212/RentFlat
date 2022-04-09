@@ -1,13 +1,16 @@
 .footer {
-  margin-top: 65px;
-  background-color: #067bc2;
-  padding: 25px 40px 15px 40px;
   display: flex;
   justify-content: space-between;
-  a {
-    color: white;
-    font-size: 24px;
-    padding: 0px 10px;
+  background: #067bc2;
+  padding: 10px 40px 1px 50px;
+  border-top: 1px solid #095c8f;
+  border-bottom: 2px solid #095c8f;
+  margin-top: 100px;
+  h2 {
+    color: #ffd100;
+  }
+  p {
+    margin-right: 15px;
   }
   .cpr {
     font-size: 18px;

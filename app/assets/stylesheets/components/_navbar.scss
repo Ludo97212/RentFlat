@@ -2,10 +2,13 @@
   justify-content: space-between;
   background: #067bc2;
   padding: 10px 40px 1px 50px;
-  border-top: 2px solid #09456a;
-  border-bottom: 2px solid #09456a;
+  border-top: 1px solid #095c8f;
+  border-bottom: 2px solid #095c8f;
   h2 {
     color: #ffd100;
+    &:hover {
+      color: #f0a017;
+    }
   }
   p {
     margin-right: 15px;
@@ -31,13 +34,18 @@
   width: 40px;
   border-radius: 50%;
   height: 40px;
-  background-color: white;
+  // background-color: white;
   &:hover {
     opacity: 0.5
   }
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: white;
+  color: #ffd100;
   font-weight: bold;
+  &:hover {
+    color: #f0a017;
+  }
 }
+
+// --------------------------
