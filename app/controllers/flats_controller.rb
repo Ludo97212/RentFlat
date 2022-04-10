@@ -34,12 +34,8 @@ class FlatsController < ApplicationController
   end
 
   def homepage
-    if params[:query].present?
-      sql_query = "address ILIKE :query"
-      @flats = Flat.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
-    else
-      @flats = Flat.order(created_at: :desc).limit(9)
-    end
+    @flats = Flat.all
+    @flats_to_show = Flat.order(created_at: :desc).limit(6)
     @markers = @flats.geocoded.map do |flat|
       {
         lat: flat.latitude,

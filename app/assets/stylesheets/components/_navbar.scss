@@ -1,9 +1,10 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
   background: #067bc2;
   padding: 10px 40px 1px 50px;
   border-top: 1px solid #095c8f;
   border-bottom: 2px solid #095c8f;
+  width: 100%;
   h2 {
     color: #ffd100;
     &:hover {
@@ -12,15 +13,17 @@
   }
   p {
     margin-right: 15px;
+    color: #ffd100;
+    font-weight: bold;
+
+    &:hover {
+      color: #f0a017;
+    }
   }
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
 }
 
 .navbar-nav .dropdown-menu {
@@ -49,3 +52,61 @@
 }
 
 // --------------------------
+
+.nav-user {
+  .dropdown {
+    margin-right: 150px;
+  }
+  ul {
+    list-style: none;
+    margin-right: 0;
+    padding-left: 0;
+  }
+  li {
+    color: #fff;
+    display: block;
+    float: left;
+    padding-left: 50px;
+    position: relative;
+    text-decoration: none;
+  }
+  a {
+    color: #ffd100;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 16px;
+  }
+  li:hover,
+  li:focus-within {
+    cursor: pointer;
+  }
+  li:focus-within a {
+    outline: none;
+  }
+  ul li ul {
+    background: white;
+    visibility: hidden;
+    opacity: 0;
+    // min-width: 5rem;
+    position: absolute;
+    margin: 5;
+    // left: 100;
+    right: 200;
+    display: none;
+    border-radius: 10px;
+    border: 3px solid #ffd100;
+  }
+  ul li:hover>ul,
+  ul li:focus-within>ul,
+  ul li ul:hover,
+  ul li ul:focus {
+    visibility: visible;
+    opacity: 1;
+    display: block
+  }
+  ul li ul li {
+    border-bottom: 1px dashed #ffd100;
+    clear: both;
+    width: 100%;
+  }
+}

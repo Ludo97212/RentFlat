@@ -27,8 +27,6 @@
     margin: 0;
   }
 }
-
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -36,15 +34,23 @@
   align-items: flex-end;
   position: relative;
 }
-
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  right: 35px;
+  top: 0px;
+  width: 42px;
+  height: 42px;
 }
 
-// CARD PRODUCT
+
+
+
+
+
+
+
+
+// ------------------ CARD PRODUCT -------------------------------------------
 
 .card-product {
   overflow: hidden;

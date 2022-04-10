@@ -1,22 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Flats</h1>
-  <% @flats.each do |flat| %>
-    <tr>
-      <%= flat.name %>
-      <%= flat.address %>
-      <%= link_to 'Show', flat %>
-    </tr>
-  <% end %>
-
-  <div id="map" style="width: 50%; height: 400px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-<br>
-
-<%= link_to "Back", root_path, class: "btn btn-primary" %>
-<%= link_to "Modifier profil", edit_user_registration_path, class: "dropdown-item" %>
-<%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+<div class="container">
+    <% if @flats.empty? == false %>
+        <div class="index-grid">
+          <% @flats.each do |flat| %>
+            <div class="card-trip">
+              <% if flat.photo.attached? %>
+                <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
+              <% else %>
+                <%= link_to image_tag("default_flat.jpg"), flat_path(flat) %>
+              <% end %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= link_to flat.name.upcase, flat_path(flat) %> </h2>
+                  <p><%= flat.address.capitalize %></p>
+                </div>
+                <h4 class="card-trip-pricing"><%= flat.daily_price %>€/jour</h4>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
+            </div>
+          <% end %>
+        </div>
+    <% else %>
+      <h1>Aucun Résultat !</h1>
+    <% end %>
+</div>

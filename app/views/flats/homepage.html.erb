@@ -33,9 +33,10 @@
     </div>
   </div>
 
+  <h1>Quelques résultats</h1>
     <% if @flats.empty? == false %>
         <div class="index-grid">
-          <% @flats.each do |flat| %>
+          <% @flats_to_show.each do |flat| %>
             <div class="card-trip">
               <% if flat.photo.attached? %>
                 <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
