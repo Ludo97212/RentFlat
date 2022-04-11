@@ -1,20 +1,20 @@
 <div class="container">
     <% if @flats.empty? == false %>
-        <div class="index-grid">
+        <div class="flat-grid" style="margin-top: 80px;">
           <% @flats.each do |flat| %>
-            <div class="card-trip">
+            <div class="card-flat">
               <% if flat.photo.attached? %>
                 <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
               <% else %>
                 <%= link_to image_tag("default_flat.jpg"), flat_path(flat) %>
               <% end %>
-              <div class="card-trip-infos">
+              <div class="card-flat-infos">
                 <div>
                   <h2><%= link_to flat.name.upcase, flat_path(flat) %> </h2>
                   <p><%= flat.address.capitalize %></p>
                 </div>
-                <h4 class="card-trip-pricing"><%= flat.daily_price %>€/jour</h4>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                <h4 class="card-flat-pricing"><%= flat.daily_price %>€/jour</h4>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
               </div>
             </div>
           <% end %>

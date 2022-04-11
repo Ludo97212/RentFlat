@@ -1,4 +1,4 @@
-.card-trip {
+.card-flat {
   border-radius: 10px;
   overflow: hidden;
   background: white;
@@ -27,25 +27,21 @@
     margin: 0;
   }
 }
-.card-trip .card-trip-infos {
+.card-flat .card-flat-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
 }
-.card-trip-infos .card-trip-user {
+.card-flat-infos .card-flat-user {
   position: absolute;
   right: 35px;
   top: 0px;
   width: 42px;
   height: 42px;
 }
-
-
-
-
-
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
@@ -82,9 +78,9 @@
 }
 .card-product .card-product-infos {
   padding: 16px;
-
 }
-// -----------------------------
+
+// ---------------------------------------------
 
 .card {
   border-radius: 5px;
@@ -104,7 +100,6 @@
     margin-bottom: 40px;
   }
 }
-
 .new_booking {
   align-self: center;
 }

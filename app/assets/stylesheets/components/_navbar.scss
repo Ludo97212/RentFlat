@@ -1,80 +1,68 @@
 .navbar {
+  display: flex;
   justify-content: space-between;
   background: #067bc2;
-  padding: 10px 40px 1px 50px;
+  padding: 15px 40px 15px 40px;
   border-top: 1px solid #095c8f;
   border-bottom: 2px solid #095c8f;
   width: 100%;
-  h2 {
+  h1, a, p {
     color: #ffd100;
+    text-decoration: none;
     &:hover {
       color: #f0a017;
     }
   }
-  p {
-    margin-right: 15px;
-    color: #ffd100;
+  h1 {
+    font-size: 32px;
     font-weight: bold;
-
+  }
+  a, p {
+    font-size: 20px;
+  }
+  .avatar {
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
     &:hover {
-      color: #f0a017;
+      opacity: 0.5
     }
   }
-}
-
-.navbar .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-nav .dropdown-menu {
-  position: static;
-  float: none;
-  border-radius: 10px;
-  padding: 15px 5px 15px 5px;
-}
-
-.avatar {
-  width: 40px;
-  border-radius: 50%;
-  height: 40px;
-  // background-color: white;
-  &:hover {
-    opacity: 0.5
+  i {
+    color: #ffd100;
+    background-color: #067bc2;
+    font-size: 40px;
   }
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #ffd100;
-  font-weight: bold;
-  &:hover {
-    color: #f0a017;
+  .user_options {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 // --------------------------
 
 .nav-user {
-  .dropdown {
-    margin-right: 150px;
-  }
   ul {
     list-style: none;
-    margin-right: 0;
     padding-left: 0;
   }
   li {
-    color: #fff;
     display: block;
     float: left;
-    padding-left: 50px;
+    margin-left: 10px;
     position: relative;
-    text-decoration: none;
   }
   a {
     color: #ffd100;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: lighter;
+    font-size: 18px;
     margin-top: 16px;
+    &:hover {
+      color: #f0a017;
+    }
   }
   li:hover,
   li:focus-within {
@@ -86,13 +74,12 @@
   ul li ul {
     background: white;
     visibility: hidden;
-    opacity: 0;
-    // min-width: 5rem;
+    width: 200px;
     position: absolute;
-    margin: 5;
-    // left: 100;
-    right: 200;
+    right: 0px;
+    // margin-right: 50px;
     display: none;
+    padding: 5px 8px 5px 8px;
     border-radius: 10px;
     border: 3px solid #ffd100;
   }
@@ -102,7 +89,7 @@
   ul li ul:focus {
     visibility: visible;
     opacity: 1;
-    display: block
+    display: block;
   }
   ul li ul li {
     border-bottom: 1px dashed #ffd100;

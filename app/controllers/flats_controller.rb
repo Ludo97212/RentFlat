@@ -18,10 +18,10 @@ class FlatsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "address ILIKE :query"
-      # @flats = Flat.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
       @flats = Flat.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
+      # flash[:alert] = "0 résultat. Essayez autre chose !"
+      flash[:notice] = "#{@flats.size} résultat(s)"
     else
-      # @flats = Flat.order(address: :asc)
       @flats = Flat.all
     end
     # @flats = Flat.all
@@ -43,10 +43,6 @@ class FlatsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { flat: flat })
       }
     end
-  end
-
-  def my_flats
-    @flats = Flat.where(user_id: current_user.id)
   end
 
   def show
@@ -79,7 +75,37 @@ class FlatsController < ApplicationController
     redirect_to flats_path
   end
 
-  # ----------------------------------------------------- #
+  # ----------------------- CUSTOM METHODS ----------------------------------------- #
+
+  def my_flats
+    @flats = Flat.where(user_id: current_user.id)
+  end
+
+  def paris
+    @flats = Flat.where("address ILIKE 'paris'")
+  end
+
+  def marseille
+    @flats = Flat.where("address ILIKE 'marseille'")
+  end
+
+  def lille
+    @flats = Flat.where("address ILIKE 'Lille'")
+  end
+
+  def lyon
+    @flats = Flat.where("address ILIKE 'Lyon'")
+  end
+
+  def nice
+    @flats = Flat.where("address ILIKE 'Nice'")
+  end
+
+  def toulouse
+    @flats = Flat.where("address ILIKE 'Toulouse'")
+  end
+
+
   def filter
     # .where(engine: "Automatique")
     # .where(engine: "Manuelle")
