@@ -1,47 +1,37 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand" do %>
-    <h2><strong>Rent'Flat!</strong></h2>
-  <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <% if current_user == nil %>
-      <li class="nav-item">
-        <p><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %></p>
-      </li>
-      <li class="nav-item">
-        <p><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %></p>
-        </li>
+<div class="navbar">
+  <div>
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-house-chimney-user"></i>
+    <% end %>
+  </div>
+  <div>
+    <h1>Rent'Flat</h1>
+  </div>
+  <div class="user_options">
+    <div>
+      <% if current_user != nil %>
+        <p><%= current_user.email %></p>
       <% else %>
-        <li>
-          <p><%= current_user.email %></p>
-        </li>
+        <%= link_to "S'inscrire !", new_user_registration_path %>
       <% end %>
+    </div>
 
-      <li class="nav-item dropdown">
-        <% if current_user != nil && current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% else %>
-          <%= image_tag "icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <% if current_user != nil %>
-            <%= link_to "Mes Apparts' à louer", my_flats_path, class: "dropdown-item" %>
-            <%= link_to "Mes Reservations", my_bookings_path, class: "dropdown-item" %>
-            <%= link_to "Mes Demandes", my_demands_path, class: "dropdown-item" %>
-            <%= link_to "Modifier profil", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          <% else %>
-            <%= link_to "Auncune session en cours", new_user_session_path, class: "dropdown-item" %>
-          <% end %>
-        </div>
-      </li>
-    </ul>
+    <div class="nav-user">
+      <ul>
+        <li><%= image_tag "avatar1-yellow.png", class: "avatar dropdown-toggle" %>
+          <ul class="dropdown">
+            <% if current_user != nil %>
+            <p>. <%= link_to "Mes Apparts' à louer", my_flats_path %></p>
+            <p>. <%= link_to "Mes Reservations", my_bookings_path %></p>
+            <p>. <%= link_to "Mes Demandes", my_demands_path %></p>
+            <p>. <%= link_to "Modifier profil", edit_user_registration_path %></p>
+            <p>. <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p>
+            <% else %>
+               <%= link_to "Connexion", new_user_session_path %>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

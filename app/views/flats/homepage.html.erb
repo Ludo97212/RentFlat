@@ -1,16 +1,38 @@
 <div class="banner">
   <div class="heading">
+    <h1>Rent'Flat</h1>
     <%= form_tag flats_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], placeholder: "xxx" %>
+      <%= text_field_tag :query, params[:query], placeholder: "Paris, Marseille ..." %>
       <button class="icon"><i class="fa fa-search"></i></button>
     <% end %>
-    <h1>Rent'Flat</h1>
     <%= link_to "Ajouter votre appart'", new_flat_path, class: "btn btn-light" %>
   </div>
 </div>
 
 <div class="container">
-  <%# <%= link_to "Recherche personalisée", filter_search_path %>
+  <div class="cities">
+    <h1>Villes les plus populaires</h1>
+    <div class="cities-grid" style="margin-bottom: 80px">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.paris.fr/paris/2021/10/04/huge-0155e58a77df359c58c437e521a2ed43.jpg)">
+        <%= link_to "Paris", flats_path %>
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://a.cdn-hotels.com/gdcs/production14/d1589/9b2a4ed0-8f10-11e8-a0da-0242ac11004d.jpg)">
+        <%= link_to "Marseille", flats_path %>
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.notrefrance.com/pics/tourisme/que-visiter/provence-alpes-cote-d-azur/alpes-maritimes/nice/vue-ensemble-ville-nice-1.jpg)">
+        <%= link_to "Nice", flats_path %>
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Lille_vue_gd_place.JPG/1200px-Lille_vue_gd_place.JPG)">
+        <%= link_to "Toulouse", flats_path %>
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Lille_vue_gd_place.JPG/1200px-Lille_vue_gd_place.JPG)">
+        <%= link_to "Lyon", flats_path %>
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Lille_vue_gd_place.JPG/1200px-Lille_vue_gd_place.JPG)">
+        <%= link_to "Lille", flats_path %>
+      </div>
+    </div>
+  </div>
 
   <div id="map" style="width: 100%; height: 600px; margin-bottom: 100px;"
     data-controller="mapbox"
@@ -18,21 +40,23 @@
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
+  <h1>Quleques offres récentes</h1>
     <% if @flats.empty? == false %>
-        <div class="index-grid">
-          <% @flats.each do |flat| %>
-            <div class="card-trip">
+        <div class="flat-grid">
+          <% @flats_to_show.each do |flat| %>
+            <div class="card-flat">
               <% if flat.photo.attached? %>
                 <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
               <% else %>
                 <%= link_to image_tag("default_flat.jpg"), flat_path(flat) %>
               <% end %>
-              <div class="card-trip-infos">
+              <div class="card-flat-infos">
                 <div>
                   <h2><%= link_to flat.name.upcase, flat_path(flat) %> </h2>
                   <p><%= flat.address.capitalize %></p>
                 </div>
-                <h4 class="card-trip-pricing"><%= flat.daily_price %>€/jour</h4>
+                <h4 class="card-flat-pricing"><%= flat.daily_price %>€/jour</h4>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
               </div>
             </div>
           <% end %>

@@ -1,41 +1,99 @@
-.navbar-lewagon {
+.navbar {
+  display: flex;
   justify-content: space-between;
   background: #067bc2;
-  padding: 10px 40px 1px 50px;
-  h2 {
-    color: white;
+  padding: 15px 40px 15px 40px;
+  border-top: 1px solid #095c8f;
+  border-bottom: 2px solid #095c8f;
+  width: 100%;
+  h1, a, p {
+    color: #ffd100;
+    text-decoration: none;
+    &:hover {
+      color: #f0a017;
+    }
   }
-  p {
-    margin-right: 15px;
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  a, p {
+    font-size: 20px;
+  }
+  .avatar {
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    &:hover {
+      opacity: 0.5
+    }
+  }
+  i {
+    color: #ffd100;
+    background-color: #067bc2;
+    font-size: 40px;
+  }
+  .user_options {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
   }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+// --------------------------
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-.navbar-nav .dropdown-menu {
-  position: static;
-  float: none;
-  border-radius: 10px;
-  padding: 15px 5px 15px 5px;
-}
-
-.avatar {
-  width: 40px;
-  border-radius: 50%;
-  height: 40px;
-  background-color: white;
-  &:hover {
-    opacity: 0.5
+.nav-user {
+  ul {
+    list-style: none;
+    padding-left: 0;
   }
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: white;
-  font-weight: bold;
+  li {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    position: relative;
+  }
+  a {
+    color: #ffd100;
+    text-decoration: none;
+    font-weight: lighter;
+    font-size: 18px;
+    margin-top: 16px;
+    &:hover {
+      color: #f0a017;
+    }
+  }
+  li:hover,
+  li:focus-within {
+    cursor: pointer;
+  }
+  li:focus-within a {
+    outline: none;
+  }
+  ul li ul {
+    background: white;
+    visibility: hidden;
+    width: 200px;
+    position: absolute;
+    right: 0px;
+    // margin-right: 50px;
+    display: none;
+    padding: 5px 8px 5px 8px;
+    border-radius: 10px;
+    border: 3px solid #ffd100;
+  }
+  ul li:hover>ul,
+  ul li:focus-within>ul,
+  ul li ul:hover,
+  ul li ul:focus {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+  ul li ul li {
+    border-bottom: 1px dashed #ffd100;
+    clear: both;
+    width: 100%;
+  }
 }

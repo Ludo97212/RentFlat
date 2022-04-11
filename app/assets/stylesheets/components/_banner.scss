@@ -1,15 +1,16 @@
 .banner {
   background-size: cover;
   background-position: center;
-  background-image: url('banner 4 mdf.jpg');
+  background-image: linear-gradient(rgba(120, 120, 120, 0.3), rgba(120, 120, 120, 0.3)), url('banner-flat.jpg');
   padding: 100px 100px;
   margin-bottom: 60px;
+  border-bottom: 2px solid black;
   img {
-    opacity: 0.2;
+    opacity: 0.1;
   }
   h1 {
   margin: 0;
-  color: white;
+  color: #ffd100;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
@@ -27,16 +28,31 @@
   }
   .btn {
     border-radius: 15px;
-  }
-  a {
-    color: #067bc2;
+    color: #ffd100;
+    background-color: #067bc2;
     font-weight: bold;
+    border: 1px solid #095c8f;
+    &:hover {
+      background-color: #58a3d2;
+    }
   }
   .icon {
     position: absolute;
-    color: #067bc2;
-    background-color: white;
-    border-color: #067bc2;
+    color: white;
+    background-color: #ffd100;
+    width: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: #ffd100;
+    height: 35px;
+  }
+  #query {
+    position: relative;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 35px;
+    width: 300px;
+    padding: 0px 10px 0px 10px;
   }
 }
 

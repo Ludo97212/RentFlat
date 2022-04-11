@@ -1,21 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Flats</h1>
-    <% @flats.each do |flat| %>
-      <tr>
-      <%= flat.name %>
-      <%= link_to 'Show', flat %>
-      <%= link_to 'Edit', edit_flat_path(flat) %>
-      <%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </tr>
+<div class="container">
+    <% if @flats.empty? == false %>
+        <div class="flat-grid" style="margin-top: 80px;">
+          <% @flats.each do |flat| %>
+            <div class="card-flat">
+              <% if flat.photo.attached? %>
+                <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
+              <% else %>
+                <%= link_to image_tag("default_flat.jpg"), flat_path(flat) %>
+              <% end %>
+              <div class="card-flat-infos">
+                <div>
+                  <h2><%= link_to flat.name.upcase, flat_path(flat) %> </h2>
+                  <p><%= flat.address.capitalize %></p>
+                </div>
+                <h4 class="card-flat-pricing"><%= flat.daily_price %>€/jour</h4>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+              </div>
+            </div>
+          <% end %>
+        </div>
+    <% else %>
+      <h1>Aucun Résultat !</h1>
     <% end %>
-
-  <div id="map" style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-<br>
-
-<%= link_to 'New flat', new_flat_path %>
+</div>

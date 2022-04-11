@@ -13,17 +13,17 @@
 
   <div class="infos-show">
     <div class="text">
-      <h1><i class="fa-solid fa-feather-pointed"></i>Informations :</h1>
+      <h1><i class="fa-solid fa-feather-pointed"></i> Informations :</h1>
       <div class="trix-content">
       <h4><%= @flat.description %></h4></div>
-      <h4><i class="fa-solid fa-money-check-dollar"></i>Prix/jour : <%= @flat.daily_price %>€</h4>
-      <h4><i class="fa-solid fa-house"></i>Superficie : <%= @flat.area %> m²</h4>
+      <h4><i class="fa-solid fa-money-check-dollar"></i> Prix/jour : <%= @flat.daily_price %>€</h4>
+      <h4><i class="fa-solid fa-house"></i> Superficie : <%= @flat.area %> m²</h4>
+      <h4><i class="fa-solid fa-map-location-dot"></i> Adresse : <%= @flat.address %></h4>
     </div>
   </div>
 
   <div class="map-booking">
     <div class="bloc-map">
-      <h4><i class="fa-solid fa-map-location-dot"></i>Adresse : <%= @flat.address %></h4>
       <div id="map" style="margin-top: 15px; height: 500px; border-radius: 10px;"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @marker.to_json %>"
