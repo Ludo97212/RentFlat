@@ -21,9 +21,9 @@
         <li><%= image_tag "avatar1-yellow.png", class: "avatar dropdown-toggle" %>
           <ul class="dropdown">
             <% if current_user != nil %>
-            <p>. <%= link_to "Mes Apparts' à louer", my_flats_path %></p>
-            <p>. <%= link_to "Mes Reservations", my_bookings_path %></p>
-            <p>. <%= link_to "Mes Demandes", my_demands_path %></p>
+            <%# <p>. <%= link_to "Mes Apparts' à louer", my_flats_path %></p>
+            <%# <p>. <%= link_to "Mes Reservations", my_bookings_path %></p>
+            <%# <p>. <%= link_to "Mes Demandes", my_demands_path %></p>
             <p>. <%= link_to "Modifier profil", edit_user_registration_path %></p>
             <p>. <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p>
             <% else %>
