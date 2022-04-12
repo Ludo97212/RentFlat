@@ -1,5 +1,5 @@
-<h1>New Flat</h1>
-
-<%= render 'form', flat: @flat %>
-
-<%= link_to 'Back', flats_path %>
+<div class="container">
+  <h1>Ajouter votre offre de logement</h1>
+  <%= render 'form', flat: @flat %>
+  <%= link_to 'Annuler', root_path, class: "btn btn-warning" %>
+</div>
