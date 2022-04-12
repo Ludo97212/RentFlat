@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :flats do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:destroy, :update]
+  resources :bookings, except: [:new, :create]
 
   # ----------------------------- ADDITONNAL ROUTES ----------------------------------#
 
