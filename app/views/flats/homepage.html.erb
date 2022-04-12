@@ -56,11 +56,11 @@
                   <p><%= flat.address.capitalize %></p>
                 </div>
                 <h4 class="card-flat-pricing"><%= flat.daily_price %>€/jour</h4>
-                <% if flat.user.avatar.attached? %>
-                  <%= cl_image_tag flat.user.avatar.key, class: "card-flat-user avatar-bordered" %>
-                <% else %>
-                  <%= image_tag "avatar-card-2", class: "card-flat-user avatar-bordered" %>
-                <% end %>
+                <%# <% if flat.user.avatar.attached? %>
+                  <%# <%= cl_image_tag flat.user.avatar.key, class: "card-flat-user avatar-bordered" %>
+                <%# <% else %>
+                  <%= image_tag "avatar-card-2.jpg", class: "card-flat-user avatar-bordered" %>
+                <%# <% end %>
               </div>
             </div>
           <% end %>
