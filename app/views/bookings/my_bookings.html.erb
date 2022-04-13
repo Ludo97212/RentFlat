@@ -1,21 +1,27 @@
 <div class="container">
-<h1>Mes Réservations</h1>
-  <div class="grid-bookings">
-    <% @bookings.each do |bkg| %>
-      <div class="card-books">
-        <h2><%= bkg.flat.name %></h2>
-        <p>Début : <%= bkg.arrival %></p>
-        <p>Fin : <%= bkg.departure %></p>
-        <p>Durée : <%= @days = (bkg.arrival..bkg.departure).count %> jours</p>
-        <p>Prix journalier : <%= @price = bkg.flat.daily_price %>€</p>
-        <p>Montant TOTAL : <%= @days * @price %>€</p>
-        <% if bkg.accepted %>
-          <p>Statut : Acceptéé</p>
-        <% else %>
-          <p>Statut : En attente</p>
-          <%= link_to "Annuler la réservation", booking_path(bkg), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <h1>Mes Réservations</h1>
+  <% if @bookings.empty? %>
+    <div class="blank_page">
+      <h1>Aucun résultat</h1>
+    </div>
+  <% else %>
+    <div class="grid-bookings">
+      <% @bookings.each do |bkg| %>
+        <div class="card-books">
+          <h2><%= bkg.flat.name %></h2>
+          <p>Début : <%= bkg.arrival %></p>
+          <p>Fin : <%= bkg.departure %></p>
+          <p>Durée : <%= @days = (bkg.arrival..bkg.departure).count %> jours</p>
+          <p>Prix journalier : <%= @price = bkg.flat.daily_price %>€</p>
+          <p>Montant TOTAL : <%= @days * @price %>€</p>
+          <% if bkg.accepted %>
+            <p>Statut : Acceptéé</p>
+          <% else %>
+            <p>Statut : En attente</p>
+            <%= link_to "Annuler la réservation", booking_path(bkg), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

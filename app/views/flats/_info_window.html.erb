@@ -1,7 +1,11 @@
 <div class="container">
   <div class="info-window">
     <h2><%= link_to flat.name, flat_path(flat) %></h2>
-    <%= image_tag "default_flat.jpg" %>
+    <% if flat.photo.attached? %>
+      <%= cl_image_tag(flat.photo.key) %>
+    <% else %>
+      <%= image_tag "default_flat.jpg" %>
+    <% end %>
     <h4><%= flat.address %></h4>
     <h2 style="text-align: right;"><%= flat.daily_price %>$</h2 style="text-align: right;">
   </div>
