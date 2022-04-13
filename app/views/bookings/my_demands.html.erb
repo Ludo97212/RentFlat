@@ -1,12 +1,13 @@
 <div class="container">
   <% @bookings.each do |bkg| %>
+    <div class="flat-grid">
     <div class="card-books">
-      <h2><%= link_to "Réservation", show_demand_path(bkg) %> </h2>
-      <p><%= bkg.flat.name %></p>
+      <h2>Demande de réservation pour :</h2>
+      <h2><%= link_to bkg.flat.name, flat_path(bkg.flat) %></h2>
       <p>Début Location : <%= bkg.arrival %></p>
       <p>Fin : <%= bkg.departure %></p>
       <p>Durée : <%= @days = (bkg.arrival..bkg.departure).count %> jours</p>
-      <% @price = bkg.car.price_per_day %>
+      <% @price = bkg.flat.daily_price %>
       <% @days = (bkg.arrival..bkg.departure).count %>
       <p>Montant : <%= @days * @price %>€</p>
       <% if bkg.accepted %>
@@ -14,9 +15,10 @@
       <% else %>
         <%= simple_form_for([@flat, bkg], :method => :patch) do |f| %>
           <%= f.input :accepted, as: :radio_buttons, collection: [[false, 'Refuser'], [true, 'Accepter']], label_method: :second, value_method: :first, label: "Acceptez-vous cette réservation?" %>
-          <%= f.submit "Valider" %>
+          <%= f.submit "Valider", class: "btn btn-primary" %>
         <% end %>
       <% end %>
+    </div>
     </div>
   <% end %>
 </div>

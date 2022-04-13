@@ -46,11 +46,19 @@ class FlatsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
     @marker = @flat.geocode.map do {
       lat: @flat.latitude,
       lng: @flat.longitude
     }
+    end
+    # --------------------------------
+    @booking = Booking.new
+    @bookings = @flat.bookings
+    @bookings_dates = @bookings.map do |booking|
+      {
+        from: booking.arrival,
+        to:   booking.departure
+      }
     end
   end
 
@@ -80,31 +88,6 @@ class FlatsController < ApplicationController
   def my_flats
     @flats = Flat.where(user_id: current_user.id)
   end
-
-  def paris
-    @flats = Flat.where("address ILIKE 'paris'")
-  end
-
-  def marseille
-    @flats = Flat.where("address ILIKE 'marseille'")
-  end
-
-  def lille
-    @flats = Flat.where("address ILIKE 'Lille'")
-  end
-
-  def lyon
-    @flats = Flat.where("address ILIKE 'Lyon'")
-  end
-
-  def nice
-    @flats = Flat.where("address ILIKE 'Nice'")
-  end
-
-  def toulouse
-    @flats = Flat.where("address ILIKE 'Toulouse'")
-  end
-
 
   def filter
     # .where(engine: "Automatique")
