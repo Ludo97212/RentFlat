@@ -41,10 +41,12 @@
       <% if @flat.user != current_user %>
         <div class="new-booking" style="margin-top: 50px">
           <%= simple_form_for [@flat, @booking] do |f| %>
-            <h4>Date d'arrivée <i class="fa-regular fa-face-smile-beam"></i></h4>
-            <%= f.input :arrival, as: :date, html5: true, label: false %>
-            <h4>Date de départ <i class="fa-regular fa-face-sad-cry"></i></h4>
-            <%= f.input :departure, as: :date, html5: true, label: false %>
+            <%# <h4>Date d'arrivée <i class="fa-regular fa-face-smile-beam"></i></h4> %>
+            <%= f.input :arrival, as: :date, html5: true, label: false,
+                          input_html: { id: "range_start", class: "d-none" } %>
+            <%# <h4>Date de départ <i class="fa-regular fa-face-sad-cry"></i></h4> %>
+            <%= f.input :departure, as: :date, html5: true, label: false,
+                          input_html: { id: "range_end", class: "d-none" } %>
             <%= f.submit "Réservez mainenant !", class: "btn btn-primary" %>
           <% end %>
         </div>
@@ -58,7 +60,7 @@
   </div>
 </div>
 
-
+<%# ----------------------------- FLATPICKR ------------------------------------------------------- %>
 <div id="booking-form-div"
   data-bookings="<%= @bookings_dates.to_json %>">
 </div>
