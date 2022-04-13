@@ -36,7 +36,7 @@ class FlatsController < ApplicationController
   def homepage
     @flats = Flat.all
     @flats_to_show = Flat.order(created_at: :desc).limit(6)
-    @markers = @flats.geocoded.map do |flat|
+    @markers = @flats_to_show.geocoded.map do |flat|
       {
         lat: flat.latitude,
         lng: flat.longitude,
