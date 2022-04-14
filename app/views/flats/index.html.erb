@@ -1,3 +1,13 @@
+<%= simple_form_for flats_path, method: :get do |f| %>
+  <%= f.input :beds, as: :radio_buttons, collection: [[2, '2'], [3, '3'], [4, '4'], [5, '5']], label_method: :second, value_method: :first, label: "nb. chambres" %>
+  <%= f.collection_radio_buttons :beds, [['vegan', 'vegan'] ,['vegetarian', 'vegetarian']],:first, :last %>
+  <%= f.input :beds,
+:collection => [[Date.today, 'Today'], [Date.tomorrow, 'Tomorrow'], [Date.today+3, 'In 3 Days']],
+:label_method => :last,
+:value_method => :first,
+as: :radio_buttons %>
+<% end %>
+
 <div class="container">
     <% if @flats.empty? == false %>
         <div class="flat-grid" style="margin-top: 80px;">

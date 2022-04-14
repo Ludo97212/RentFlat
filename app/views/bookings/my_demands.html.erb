@@ -16,9 +16,14 @@
           <p>Montant : <%= @days * @price %>€</p>
           <% if bkg.accepted %>
             <h4>Réservation acceptée</h4>
+          <% elsif bkg.accepted == false %>
+            <%= link_to "Supprimer", (bkg), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
           <% else %>
             <%= simple_form_for([@flat, bkg], :method => :patch) do |f| %>
-              <%= f.input :accepted, as: :radio_buttons, collection: [[false, 'Refuser'], [true, 'Accepter']], label_method: :second, value_method: :first, label: "Acceptez-vous cette réservation?" %>
+              <div class="valid-booking">
+                <%= f.collection_radio_buttons :accepted, [[false, 'Refuser'], [true, 'Accepter']], :first, :last %>
+              <%# , label: "Acceptez-vous cette réservation?" %>
+              </div>
               <%= f.submit "Valider", class: "btn btn-primary" %>
             <% end %>
           <% end %>

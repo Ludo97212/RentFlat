@@ -25,3 +25,38 @@ body {
 .btn {
   border-radius: 15px;
 }
+
+.valid-booking {
+  // input {
+  //   margin: 0;
+  //   font-family: inherit;
+  //   font-size: inherit;
+  //   position: absolute;
+  // }
+  label.collection_radio_buttons {
+    border-radius: 10px;
+    margin: 7px;
+    color: #067bc2;
+    padding: 12px;
+    // font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #ffd100;
+  }
+
+  input {
+    display: none;
+    &+label {
+      &:before {
+        content: "";
+        display: none;
+      }
+    }
+    &:checked {
+      &+label {
+        color: white;
+        background-color: #ffd100;
+        border: 2px solid #ffd100;
+      }
+    }
+  }
+}

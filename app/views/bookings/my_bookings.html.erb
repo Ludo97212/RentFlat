@@ -26,5 +26,5 @@
   <% end %>
 </div>
 
-
-<% Date.parse(DateTime.now.to_s).strftime('%A %B %Y') %>
+<%# Date format "Lundi 13 Septembre 2022" mais en anglais %>
+<% Date.parse(DateTime.now.to_s).strftime('%A %d %B %Y') %>
