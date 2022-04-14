@@ -9,8 +9,8 @@
       <% @bookings.each do |bkg| %>
         <div class="card-books">
           <h2><%= bkg.flat.name %></h2>
-          <p>Début : <%= bkg.arrival.strftime('%d/%m/%y') %></p>
-          <p>Fin : <%= bkg.departure.strftime('%d/%m/%y') %></p>
+          <p>Début : <%= bkg.arrival.strftime('%d/%m/%Y') %></p>
+          <p>Fin : <%= bkg.departure.strftime('%d/%m/%Y') %></p>
           <p>Durée : <%= @days = (bkg.arrival..bkg.departure).count %> jours</p>
           <p>Prix journalier : <%= @price = bkg.flat.daily_price %>€</p>
           <p>Montant TOTAL : <%= @days * @price %>€</p>
@@ -25,3 +25,6 @@
     </div>
   <% end %>
 </div>
+
+
+<% Date.parse(DateTime.now.to_s).strftime('%A %B %Y') %>

@@ -82,7 +82,7 @@
 }
 @media (min-width: 576px) {
   .grid-bookings {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media (min-width: 768px) {
@@ -92,12 +92,12 @@
 }
 @media (min-width: 992px) {
   .grid-bookings {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr  1fr;
   }
 }
 @media (min-width: 1200px) {
   .grid-bookings {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 

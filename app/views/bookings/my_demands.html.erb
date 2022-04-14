@@ -6,11 +6,11 @@
     </div>
   <% else %>
     <% @bookings.each do |bkg| %>
-      <div class="flat-grid">
+      <div class="grid-bookings">
         <div class="card-books">
           <h2><%= link_to bkg.flat.name, flat_path(bkg.flat) %></h2>
-          <p>Début : <%= bkg.arrival.strftime('%d/%m/%y') %></p>
-          <p>Fin : <%= bkg.departure .strftime('%d/%m/%y')%></p>
+          <p>Début : <%= bkg.arrival.strftime('%d/%m/%Y') %></p>
+          <p>Fin : <%= bkg.departure .strftime('%d/%m/%Y')%></p>
           <p>Durée : <%= @days = (bkg.arrival..bkg.departure).count %> jours</p>
           <% @price = bkg.flat.daily_price %>
           <p>Montant : <%= @days * @price %>€</p>
