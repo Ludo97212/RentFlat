@@ -9,8 +9,8 @@
       <div class="flat-grid">
         <div class="card-books">
           <h2><%= link_to bkg.flat.name, flat_path(bkg.flat) %></h2>
-          <p>Début : <%= bkg.arrival %></p>
-          <p>Fin : <%= bkg.departure %></p>
+          <p>Début : <%= bkg.arrival.strftime('%d/%m/%y') %></p>
+          <p>Fin : <%= bkg.departure .strftime('%d/%m/%y')%></p>
           <p>Durée : <%= @days = (bkg.arrival..bkg.departure).count %> jours</p>
           <% @price = bkg.flat.daily_price %>
           <p>Montant : <%= @days * @price %>€</p>
