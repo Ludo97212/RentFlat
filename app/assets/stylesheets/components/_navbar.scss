@@ -32,6 +32,9 @@
     color: #ffd100;
     background-color: #067bc2;
     font-size: 40px;
+    &:hover {
+      color: #f0a017;
+    }
   }
   .user_options {
     display: flex;
