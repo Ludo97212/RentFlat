@@ -12,19 +12,22 @@
 .info-window {
   a {
     text-decoration: none;
+    color: #067bc2;
+    font-weight: bold;
   }
   h2 {
     color: #067bc2;
     font-size: 20px;
+    font-weight: bold;
   }
   h4 {
-    font-size: 15px;
+    font-size: 18px;
   }
   img {
     width: 90%;
     height: 120px;
     border-radius: 2%;
-    margin: 20px 0px;
+    margin: 15px 0px;
   }
 }
 
@@ -36,6 +39,7 @@
   border-radius: 0 3px px 0 0;
   cursor: pointer;
   background-color: transparent;
-  color: blue;
+  color: rgb(9, 9, 108);
   font-weight: bold;
+  font-size: 26px;
 }
