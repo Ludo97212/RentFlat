@@ -17,7 +17,7 @@ class FlatsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = "address ILIKE :query"
+      sql_query = "address ILIKE :query OR name ILIKE :query"
       @flats = Flat.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
       # flash[:alert] = "0 résultat. Essayez autre chose !"
       flash[:notice] = "#{@flats.size} résultat(s)"
