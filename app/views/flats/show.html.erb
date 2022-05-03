@@ -29,6 +29,9 @@
       <div style="display: flex; align-items: baseline;">
         <h4><i class="fa-solid fa-map-location-dot"></i> Adresse :</h4> &nbsp <p><%= @flat.address %></p>
       </div>
+      <div style="display: flex; align-items: baseline;">
+        <h4><i class="fa-solid fa-map-location-dot"></i> Propriétaire :</h4> &nbsp <p><%= @flat.user.first_name %> <%= @flat.user.last_name %></p>
+      </div>
     </div>
   </div>
 
