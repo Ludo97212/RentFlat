@@ -65,6 +65,23 @@
       <% end %>
     </div>
   </div>
+
+  <div class="comments-card">
+    <div class="display-comments">
+      <div class="card-comments">
+        <% @comments.each do |comment| %>
+          <%# <%= comment.user.avatar %>
+          <p>[ <%= comment.user.username %> ] : <%= comment.message %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="new-comment">
+      <%= simple_form_for [@flat, @comment] do |f| %>
+        <%= f.input :message, label: "Laissez votre avis" %>
+        <%= f.submit "Envoyer", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <%# ----------------------------- FLATPICKR ------------------------------------------------------- %>

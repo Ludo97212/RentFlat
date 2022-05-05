@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :last_name, :first_name, presence: true
   has_many :flats, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :flats, through: :bookings
   has_one_attached :avatar
 end

@@ -60,6 +60,9 @@ class FlatsController < ApplicationController
         to:   booking.departure
       }
     end
+    @comment = Comment.new
+    @comments = @flat.comments
+    # @comments = Comment.all
   end
 
   def edit

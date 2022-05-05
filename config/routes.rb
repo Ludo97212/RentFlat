@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :flats do
     resources :bookings, only: [:new, :create]
+    resources :comments, only: [:new, :create, :update]
   end
   resources :bookings, except: [:new, :create]
 
