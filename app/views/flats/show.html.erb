@@ -68,16 +68,20 @@
 
   <div class="comments-card">
     <div class="display-comments">
-      <div class="card-comments">
-        <% @comments.each do |comment| %>
-          <%# <%= comment.user.avatar %>
-          <p>[ <%= comment.user.username %> ] : <%= comment.message %></p>
+      <div class="cards-index">
+      <% if @comments.empty? %>
+        <h4>Il n'y aucun avis pour le moment</h4>
+      <% else %>
+          <% @comments.each do |comment| %>
+            <%# <%= comment.user.avatar %>
+            <p>[ <%= comment.user.username %> ] : <%= comment.message %></p>
+          <% end %>
         <% end %>
       </div>
     </div>
     <div class="new-comment">
       <%= simple_form_for [@flat, @comment] do |f| %>
-        <%= f.input :message, label: "Laissez votre avis" %>
+        <%= f.input :message, label: "Votre avis" %>
         <%= f.submit "Envoyer", class: "btn btn-primary" %>
       <% end %>
     </div>

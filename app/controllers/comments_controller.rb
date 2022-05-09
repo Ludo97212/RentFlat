@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment.flat = @flat
     if @comment.save
       redirect_to flat_path(@flat)
+      # else
     end
   end
 

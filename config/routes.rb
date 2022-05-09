@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :update]
   end
   resources :bookings, except: [:new, :create]
+  resources :comments, except: [:new, :create, :update]
 
   # ----------------------------- ADDITONNAL ROUTES ----------------------------------#
 
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
   get "my_bookings", to: "bookings#my_bookings"
   get "my_demands", to: "bookings#my_demands"
   get "show_demand", to: "bookings#show_demand"
+  # BOOKINGS CONTROLLER
+  get "contacts", to: "pages#contacts"
+  get "Renseignements", to: "pages#infos"
 
   # ----------------------------------------------- #
 end
