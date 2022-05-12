@@ -169,10 +169,20 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.comments-card {
-  margin-top: 65px;
-  display: flex;
-  justify-content: space-between;
+.display-comments {
+  background-color: white;
+  margin-top: 50px;
   padding: 15px;
-  border: 1px solid #067bc2;
+  border: 3px solid #067bc2;
+  p {
+
+  }
+  h5 {
+    font-weight: bold;
+    color: #067bc2;
+  }
+}
+
+.row {
+  display: flex;
 }

@@ -1,5 +1,5 @@
 <div class="banner-show">
-  <h1><%= @flat.name %> / <%= @flat.area %> m²</h1>
+  <h1><%= @flat.name %></h1>
 </div>
 
 <div class="container">
@@ -18,6 +18,7 @@
       <div class="trix-content">
         <p><%= @flat.description %></p>
       </div>
+      <br>
       <div style="display: flex; align-items: baseline;">
         <h4><i class="fa-solid fa-money-check-dollar"></i> Prix/jour :</h4> &nbsp <p><%= @flat.daily_price %>€</p>
       </div>
@@ -66,23 +67,23 @@
     </div>
   </div>
 
-  <div class="comments-card">
-    <div class="display-comments">
-      <div class="cards-index">
-      <% if @comments.empty? %>
-        <h4>Il n'y aucun avis pour le moment</h4>
-      <% else %>
-          <% @comments.each do |comment| %>
-            <%# <%= comment.user.avatar %>
-            <p>[ <%= comment.user.username %> ] : <%= comment.message %></p>
-          <% end %>
+  <div class="new-comment">
+    <%= simple_form_for [@flat, @comment] do |f| %>
+      <%= f.input :message, label: "Votre avis", as: :rich_text_area, html5: true %>
+      <%= f.submit "Envoyer", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="display-comments">
+    <div class="cards-index">
+    <% if @comments.empty? %>
+      <h4>Soyez le premier à donner votre avis</h4>
+    <% else %>
+        <% @comments.each do |comment| %>
+          <div class="row">
+            <h5><%= comment.user.username %> :</h5>  <p><%= comment.message %></p>
+          </div>
         <% end %>
-      </div>
-    </div>
-    <div class="new-comment">
-      <%= simple_form_for [@flat, @comment] do |f| %>
-        <%= f.input :message, label: "Votre avis" %>
-        <%= f.submit "Envoyer", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
