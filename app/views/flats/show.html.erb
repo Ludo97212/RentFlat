@@ -80,9 +80,8 @@
       <h4>Soyez le premier à donner votre avis</h4>
     <% else %>
         <% @comments.each do |comment| %>
-          <div class="row">
-            <h5><%= comment.user.username %> :</h5>  <p><%= comment.message %></p>
-          </div>
+          <div style="display:inline-block; width:auto;"><h5><%= comment.user.username %> :</h5></div>
+          <div style="display:inline-block; width:auto;"><%= comment.message %></div>
         <% end %>
       <% end %>
     </div>
