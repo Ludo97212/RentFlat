@@ -175,11 +175,17 @@
   padding: 15px;
   border: 3px solid #067bc2;
   p {
-    // display: inline-block;
+    display: inline-block;
   }
   h5 {
     font-weight: bold;
     color: #067bc2;
-    // display: inline-block;
+    display: inline-block;
   }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
 }
