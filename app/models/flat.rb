@@ -11,4 +11,6 @@ class Flat < ApplicationRecord
   validates :name, :address, :daily_price, :area, :description, presence: true
   validates :area, :daily_price, numericality: { greater_than: 0, only_integer: true }
   has_rich_text :description
+
+  paginates_per 50
 end

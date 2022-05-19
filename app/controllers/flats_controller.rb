@@ -31,6 +31,8 @@ class FlatsController < ApplicationController
         lng: flat.longitude
       }
     end
+    #
+    @flats = Flat.page params[:page]
   end
 
   def homepage
