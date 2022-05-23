@@ -26,4 +26,8 @@
     <% else %>
       <h1>Aucun Résultat !</h1>
     <% end %>
+
+  <div class="pages">
+    <%= paginate @flats, outer_window: 3 %>
+  </div>
 </div>

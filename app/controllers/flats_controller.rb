@@ -22,7 +22,8 @@ class FlatsController < ApplicationController
       # flash[:alert] = "0 résultat. Essayez autre chose !"
       flash[:notice] = "#{@flats.size} résultat(s)"
     else
-      @flats = Flat.all
+      # @flats = Flat.all
+      @flats = Flat.page params[:page]
     end
     # @flats = Flat.all
     @markers = @flats.geocoded.map do |flat|
@@ -32,7 +33,7 @@ class FlatsController < ApplicationController
       }
     end
     #
-    @flats = Flat.page params[:page]
+
   end
 
   def homepage
