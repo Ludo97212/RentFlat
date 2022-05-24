@@ -70,7 +70,7 @@
   <div class="new-comment">
     <%= simple_form_for [@flat, @comment] do |f| %>
       <%= f.input :message, label: "Votre avis", as: :rich_text_area, html5: true %>
-      <%= f.submit "Envoyer", class: "btn btn-primary" %>
+      <%= f.submit "Publier", class: "btn btn-primary" %>
     <% end %>
   </div>
 
@@ -81,7 +81,8 @@
     <% else %>
         <% @comments.each do |comment| %>
         <div class="row">
-          <%= comment.user.username %> : <%= comment.message %></div>
+          <%# <%= comment.user.username %>
+          <p><i class="fa-solid fa-quote-left"></i><%= comment.message %><i class="fa-solid fa-quote-right"></i></p>
         </div>
         <% end %>
       <% end %>
