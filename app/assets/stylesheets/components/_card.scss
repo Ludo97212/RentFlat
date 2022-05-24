@@ -168,3 +168,19 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
+
+.display-comments {
+  background-color: white;
+  margin-top: 50px;
+  padding: 15px;
+  border: 3px solid #067bc2;
+  p {
+    display: inline;
+  }
+}
+
+.row {
+  display: inline;
+  // flex-direction: row;
+  justify-content: space-between;
+}

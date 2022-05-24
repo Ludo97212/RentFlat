@@ -22,9 +22,9 @@ class FlatsController < ApplicationController
       # flash[:alert] = "0 résultat. Essayez autre chose !"
       flash[:notice] = "#{@flats.size} résultat(s)"
     else
+      # @flats = Flat.order(:created_at).page params[:page]
       @flats = Flat.all
     end
-    # @flats = Flat.all
     @markers = @flats.geocoded.map do |flat|
       {
         lat: flat.latitude,
@@ -60,6 +60,9 @@ class FlatsController < ApplicationController
         to:   booking.departure
       }
     end
+    @comment = Comment.new
+    @comments = @flat.comments.order(created_at: :desc).limit(5)
+    # @comments = Comment.all
   end
 
   def edit

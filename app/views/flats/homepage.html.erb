@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="heading">
-    <h1>Rent'Flat</h1>
+    <h1>Bienvenue !</h1>
     <%= form_tag flats_path, method: :get do %>
       <%= text_field_tag :query, params[:query], placeholder: "Paris, Marseille ..." %>
       <button class="icon"><i class="fa fa-search"></i></button>
@@ -71,4 +71,8 @@
     <% else %>
       <h1>Aucun Résultat !</h1>
     <% end %>
+
+  <div id="index">
+    <%= link_to "Voir toutes les offres", flats_path %>
+  </div>
 </div>
