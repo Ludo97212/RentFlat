@@ -18,8 +18,8 @@ puts "DESTROY USERS"
 User.destroy_all
 
 puts "CREATE 2 USERS"
-User.create!(email: "toto@gmail.com", first_name: "Thomas", last_name: "Book", password: "azerty", username: "Toto77")
-User.create!(email: "bibi@gmail.com", first_name: "Bobby", last_name: "Shaw", password: "azerty", username: "Bibi75")
+User.create!(email: "toto@gmail.com", first_name: "Pierre", last_name: "Simon", password: "azerty", username: "Pierrot")
+User.create!(email: "bibi@gmail.com", first_name: "Marie", last_name: "Victoire", password: "azerty", username: "MarieMJ")
 
 puts "CREATE x FLATS"
   50.times do
