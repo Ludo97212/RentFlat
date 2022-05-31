@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="heading">
-    <h1>Bienvenue !</h1>
+    <h2>Bienvenue !</h2>
     <%= form_tag flats_path, method: :get do %>
       <%= text_field_tag :query, params[:query], placeholder: "Paris, Marseille ..." %>
       <button class="icon"><i class="fa fa-search"></i></button>
@@ -11,7 +11,7 @@
 
 <div class="container">
   <div class="cities">
-    <h1>Villes les plus recherchées</h1>
+    <h2>Villes les plus recherchées</h2>
     <div class="cities-grid" style="margin-bottom: 80px">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.paris.fr/paris/2021/10/04/huge-0155e58a77df359c58c437e521a2ed43.jpg)">
         <%= link_to "Paris", flats_path(query: "paris") %>
@@ -43,15 +43,15 @@
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-  <h1>Quleques offres récentes</h1>
+  <h2>Quleques offres récentes</h2>
     <% if @flats.empty? == false %>
         <div class="flat-grid">
           <% @flats_to_show.each do |flat| %>
             <div class="card-flat">
               <% if flat.photo.attached? %>
-                <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
+                <%= link_to cl_image_tag(flat.photo.key), flat_path(flat), alt: "Photo de l'appartement" %>
               <% else %>
-                <%= link_to image_tag("default_flat.jpg"), flat_path(flat) %>
+                <%= link_to image_tag("default_flat.jpg"), flat_path(flat), alt: "Photo de l'appartement" %>
               <% end %>
               <div class="card-flat-infos">
                 <div>
@@ -59,11 +59,6 @@
                   <p><%= flat.address.capitalize %></p>
                 </div>
                 <h4 class="card-flat-pricing"><%= flat.daily_price %>€/jour</h4>
-                <%# <% if flat.user.avatar.attached? %>
-                  <%# <%= cl_image_tag flat.user.avatar.key, class: "card-flat-user avatar-bordered" %>
-                <%# <% else %>
-                  <%= image_tag "avatar-card-2.jpg", class: "card-flat-user avatar-bordered" %>
-                <%# <% end %>
               </div>
             </div>
           <% end %>
