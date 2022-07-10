@@ -1,13 +1,13 @@
-<div class="banner">
+<section class="banner">
   <div class="heading">
-    <h2>Bienvenue !</h2>
     <%= form_tag flats_path, method: :get do %>
       <%= text_field_tag :query, params[:query], placeholder: "Paris, Marseille ..." %>
       <button class="icon"><i class="fa fa-search"></i></button>
     <% end %>
+
     <%= link_to "Ajouter votre appart'", new_flat_path, class: "btn btn-light" %>
   </div>
-</div>
+</section>
 
 <div class="container">
   <div class="cities">

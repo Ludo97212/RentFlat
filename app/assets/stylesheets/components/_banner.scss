@@ -2,8 +2,10 @@
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(120, 120, 120, 0.3), rgba(120, 120, 120, 0.3)), url('banner-flat.jpg');
-  padding: 100px 100px;
+  padding: 100px 0px;
   margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
   border-bottom: 2px solid black;
   img {
     opacity: 0.1;
@@ -24,41 +26,49 @@
   .heading {
     display: flex;
     flex-direction: column;
-    width: 67%;
+    align-items: center;
+    width: 80%;
     // justify-content: space-between;
     h2 {
       color: $gold;
       font-weight: bold;
     }
-  }
-  .btn {
-    border-radius: 15px;
-    color: #ffd100;
-    background-color: #067bc2;
-    font-weight: bold;
-    border: 1px solid #095c8f;
-    width: 250px;
-    &:hover {
-      background-color: #58a3d2;
+    .btn {
+      border-radius: 15px;
+      color: $gold;
+      background-color: #067bc2;
+      font-weight: bold;
+      border: 1px solid #095c8f;
+      width: 250px;
+      margin-top: 35px;
+      &:hover {
+        background-color: #58a3d2;
+      }
     }
-  }
-  .icon {
-    position: absolute;
-    color: white;
-    background-color: #ffd100;
-    width: 50px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-color: #ffd100;
-    height: 35px;
-  }
-  #query {
-    position: relative;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    height: 35px;
-    width: 350px;
-    padding: 0px 10px 0px 10px;
+    .icon {
+      position: absolute;
+      color: white;
+      background-color: $gold;
+      width: 40px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-color: $gold;
+      height: 35px;
+      border: none;
+    }
+
+    #query {
+      position: relative;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      height: 35px;
+      width: 320px;
+      padding: 0px 10px 0px 10px;
+      border: none;
+      &:hover {
+        border: 2px solid $gold;
+      }
+    }
   }
 }
 
