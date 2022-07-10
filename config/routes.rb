@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "show_demand", to: "bookings#show_demand"
   # BOOKINGS CONTROLLER
   get "contacts", to: "pages#contacts"
-  get "Renseignements", to: "pages#infos"
+  get "Infos", to: "pages#infos"
 
   # ----------------------------------------------- #
 end

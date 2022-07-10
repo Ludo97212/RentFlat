@@ -1,103 +1,50 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  background: #067bc2;
-  padding: 10px 40px 10px 40px;
-  border-top: 1px solid #095c8f;
-  border-bottom: 2px solid #095c8f;
-  width: 100%;
-  h1, a, p {
-    color: #ffd100;
-    text-decoration: none;
-    &:hover {
-      color: #f0a017;
-    }
-  }
-  h1 {
-    font-size: 32px;
-    font-weight: bold;
-  }
-  a, p {
-    font-size: 20px;
-  }
-  .avatar {
-    width: 40px;
-    border-radius: 50%;
-    height: 40px;
-    &:hover {
-      opacity: 0.5
-    }
-  }
-  i {
-    color: #ffd100;
-    background-color: #067bc2;
-    font-size: 40px;
-    &:hover {
-      color: #f0a017;
-    }
-  }
-  .user_options {
+.navbar-lewagon {
+  background: $blue;
+  .container-fluid {
     display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    img {
+      border-radius: 50%;
+      margin-left: 10px;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.5;
+      }
+    }
+    a, li, h1 {
+      color: $gold;
+    }
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .dropdown-item {
+      color: $gold;
+      font-weight: bold;
+      &:hover {
+        background-color: $blue;
+      }
+    }
+    .dropdown-menu.show {
+      display: block;
+      border-radius: 5%;
+      border: 2px $blue solid;
+    }
+    .fa-house-chimney-user {
+      color: $gold;
+      font-size: 2em;
+    }
   }
 }
 
-// --------------------------
-
-.nav-user {
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  li {
-    display: block;
-    float: left;
-    margin-left: 10px;
-    position: relative;
-  }
-  a {
-    color: #ffd100;
-    text-decoration: none;
-    font-weight: lighter;
-    font-size: 18px;
-    margin-top: 16px;
-    &:hover {
-      color: #f0a017;
-    }
-  }
-  li:hover,
-  li:focus-within {
-    cursor: pointer;
-  }
-  li:focus-within a {
-    outline: none;
-  }
-  ul li ul {
-    background: white;
-    visibility: hidden;
-    width: 200px;
-    text-align: center;
-    position: absolute;
-    right: 0px;
-    // margin-right: 50px;
-    display: none;
-    padding: 5px 8px 5px 8px;
-    border-radius: 10px;
-    border: 3px solid #ffd100;
-  }
-  ul li:hover>ul,
-  ul li:focus-within>ul,
-  ul li ul:hover,
-  ul li ul:focus {
-    visibility: visible;
-    opacity: 1;
-    display: block;
-  }
-  ul li ul li {
-    border-bottom: 1px dashed #ffd100;
-    clear: both;
-    width: 100%;
-  }
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
 }
