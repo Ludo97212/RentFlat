@@ -23,10 +23,11 @@
   }
   .heading {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 67%;
+    // justify-content: space-between;
     h2 {
-      color: #ffd100;
+      color: $gold;
       font-weight: bold;
     }
   }
@@ -36,6 +37,7 @@
     background-color: #067bc2;
     font-weight: bold;
     border: 1px solid #095c8f;
+    width: 250px;
     &:hover {
       background-color: #58a3d2;
     }
@@ -55,7 +57,7 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     height: 35px;
-    width: 300px;
+    width: 350px;
     padding: 0px 10px 0px 10px;
   }
 }
