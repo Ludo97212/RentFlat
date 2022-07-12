@@ -10,7 +10,7 @@
 </section>
 
 <div class="container">
-  <div class="cities">
+  <section class="cities">
     <h2>Villes les plus recherchées</h2>
     <div class="cities-grid" style="margin-bottom: 80px">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.paris.fr/paris/2021/10/04/huge-0155e58a77df359c58c437e521a2ed43.jpg)">
@@ -35,39 +35,39 @@
         <%= link_to "Montpellier", flats_path(query: "montpellier") %>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div id="map" style="width: 100%; height: 600px; margin-bottom: 100px;"
+  <section id="map" style="width: 100%; height: 600px; margin-bottom: 100px;"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+  </section>
 
-  <h2>Quleques offres récentes</h2>
-    <% if @flats.empty? == false %>
-        <div class="flat-grid">
-          <% @flats_to_show.each do |flat| %>
-            <div class="card-flat">
-              <% if flat.photo.attached? %>
-                <%= link_to cl_image_tag(flat.photo.key), flat_path(flat), alt: "Photo de l'appartement" %>
-              <% else %>
-                <%= link_to image_tag("default_flat.jpg"), flat_path(flat), alt: "Photo de l'appartement" %>
-              <% end %>
-              <div class="card-flat-infos">
-                <div>
-                  <h2><%= link_to flat.name.upcase, flat_path(flat) %> </h2>
-                  <p><%= flat.address.capitalize %></p>
+  <section class="recents-flats">
+    <h2>Quleques offres récentes</h2>
+      <% if @flats.empty? == false %>
+          <div class="flat-grid">
+            <% @flats_to_show.each do |flat| %>
+              <div class="card-flat">
+                <% if flat.photo.attached? %>
+                  <%= link_to cl_image_tag(flat.photo.key), flat_path(flat), alt: "Photo de l'appartement" %>
+                <% else %>
+                  <%= link_to image_tag("default_flat.jpg"), flat_path(flat), alt: "Photo de l'appartement" %>
+                <% end %>
+                <div class="card-flat-infos">
+                  <div>
+                    <h2><%= link_to flat.name.upcase, flat_path(flat) %></h2>
+                    <p><%= flat.address.capitalize %></p>
+                  </div>
+                  <h4 class="card-flat-pricing"><%= flat.daily_price %>€/nuit</h4>
                 </div>
-                <h4 class="card-flat-pricing"><%= flat.daily_price %>€/jour</h4>
               </div>
-            </div>
-          <% end %>
-        </div>
-    <% else %>
-      <h1>Aucun Résultat !</h1>
-    <% end %>
+            <% end %>
+          </div>
+      <% else %>
+        <h2>Aucun Résultat !</h2>
+      <% end %>
+  </section>
 
-  <div id="index">
-    <%= link_to "Voir toutes les offres", flats_path %>
-  </div>
+  <%= link_to "Voir toutes les offres", flats_path, class: "index-link" %>
 </div>

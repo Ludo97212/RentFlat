@@ -8,6 +8,9 @@
     height: 350px;
     width: 100%;
     object-fit: cover;
+    &:hover {
+      opacity: 0.8;
+    }
   }
   h2 {
     padding-top: 8px;
@@ -22,9 +25,12 @@
     padding-right: 5px;
   }
   p {
-    font-size: 12px;
-    opacity: .7;
+    color: rgb(120, 120, 120);
+    font-size: 15px;
     margin: 0;
+  }
+  a {
+    text-decoration: none;
   }
 }
 .card-flat .card-flat-infos {
@@ -106,23 +112,23 @@
 
 // -----------------------------
 
-.card-my-cars {
+.card-my-flats {
   overflow: hidden;
-  height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
   display: flex;
   align-items: center;
-  margin: 20px;
-  width: 60%;
+  margin: 20px 0px;
+  width: 100%;
+  height: 250px;
   img {
     height: 100%;
-    width: 180px;
+    width: 250px;
     object-fit: cover;
   }
 }
-.card-my-cars-infos {
+.card-my-flats-infos {
   padding: 16px;
 }
 

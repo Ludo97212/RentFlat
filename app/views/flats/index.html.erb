@@ -2,8 +2,9 @@
   <br>
   <em>Don't forget to add Pagination later (15 f/p), then sort with filters (price, cities, beds number...)</em>
 
+  <section class="index-flats">
     <% if @flats.empty? == false %>
-        <div class="flat-grid" style="margin-top: 80px;">
+        <div class="flat-grid">
           <% @flats.each do |flat| %>
             <div class="card-flat">
               <% if flat.photo.attached? %>
@@ -16,19 +17,15 @@
                   <h2><%= link_to flat.name.upcase, flat_path(flat) %> </h2>
                   <p><%= flat.address.capitalize %></p>
                 </div>
-                <h4 class="card-flat-pricing"><%= flat.daily_price %>€/jour</h4>
-                <%# <% if flat.user.avatar.attached? %>
-                  <%# <%= cl_image_tag flat.user.avatar.key, class: "card-flat-user avatar-bordered" %>
-                <%# <% else %>
-                  <%= image_tag "avatar-card-2.jpg", class: "card-flat-user avatar-bordered" %>
-                <%# <% end %>
+                <h4 class="card-flat-pricing"><%= flat.daily_price %>€/nuit</h4>
               </div>
             </div>
           <% end %>
         </div>
     <% else %>
-      <h1>Aucun Résultat !</h1>
+      <h2>Aucun Résultat !</h2>
     <% end %>
+  </section>
 
   <div class="pages">
   <%# <% if @flats.size > 18 %>

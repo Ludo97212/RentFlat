@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   validates :message, presence: true
-  # validates :message, length: { minimum: 2, maximum: 400 }
+  validates :message, length: { in: 3..400 }
 
   belongs_to :user
   belongs_to :flat

@@ -1,0 +1,24 @@
+.recents-flats {
+  margin-bottom: 30px;
+  h2 {
+    color: $blue;
+    margin-bottom: 15px;
+  }
+}
+
+.cities {
+  h2 {
+    color: $blue;
+    margin-bottom: 15px;
+  }
+}
+
+.index-link {
+  color: $blue;
+  font-size: 20px;
+  margin-top: 15px;
+  &:hover {
+    text-decoration: none;
+    color: #447cd6;
+  }
+}

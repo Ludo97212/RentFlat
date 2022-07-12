@@ -26,12 +26,17 @@
 }
 @media (min-width: 992px) {
   .flat-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media (min-width: 1200px) {
   .flat-grid {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 2000px) {
+  .flat-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 

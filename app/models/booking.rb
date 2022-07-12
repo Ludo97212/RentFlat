@@ -3,5 +3,5 @@ class Booking < ApplicationRecord
   belongs_to :flat
 
   validates :arrival, :departure, presence: true
-  # validates :arrival, comparison: { less_than: :departure }
+  # validates :departure, comparison: { greater_than: :arrival }
 end

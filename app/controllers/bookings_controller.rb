@@ -36,6 +36,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.joins(:flat).where(flats: { user_id: current_user }).order(created_at: :desc)
   end
 
+  # UPDATE is for proprio == Accept or No
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(accepted_params)

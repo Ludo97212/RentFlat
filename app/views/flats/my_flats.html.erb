@@ -1,14 +1,13 @@
 <div class="container">
   <% @flats.each do |flat| %>
-    <div class="card-my-cars">
+    <div class="card-my-flats">
       <% if flat.photo.attached? %>
-        <%= link_to cl_image_tag(flat.photo.key, height: 180, width: 180, crop: "fill"), flat_path(flat) %>
+        <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
       <% else %>
-        <%= link_to image_tag("default_flat.jpg", height: 180, width: 180, crop: "fill"), flat_path(flat) %>
+        <%= link_to image_tag("default_flat.jpg"), flat_path(flat) %>
       <% end %>
-      <div class="card-my-cars-infos">
+      <div class="card-my-flats-infos">
         <h4><%= link_to flat.name, flat_path(flat) %></h4>
-        <p><%= flat.daily_price %>€/jour</p>
       </div>
     </div>
   <% end %>
