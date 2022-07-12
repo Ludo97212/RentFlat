@@ -22,7 +22,8 @@
       color: $gold;
       font-weight: bold;
       &:hover {
-        background-color: $blue;
+        background-color: $gold;
+        color: white;
       }
     }
     .dropdown-menu.show {

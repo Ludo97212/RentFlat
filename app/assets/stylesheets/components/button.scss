@@ -1,0 +1,11 @@
+.btn-cancel-booking {
+  padding: 16px;
+  color: white;
+  background-color: rgb(174, 56, 56);
+  border-radius: 15px;
+  font-weight: bold;
+  &:hover {
+    background-color: rgb(204, 95, 95);
+    color: rgb(239, 239, 239);
+  }
+}

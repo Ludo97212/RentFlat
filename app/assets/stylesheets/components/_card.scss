@@ -138,11 +138,15 @@
   background-color: white;
   border-radius: 5px;
   text-align: center;
-  padding: 16px;
+  padding: 16px 0px 30px 0px;
   margin: 25px 10px 15px 10px;
   border: 2px solid #ffd100;
   a {
     text-decoration: none;
+  }
+  p {
+    font-weight: bold;
+    color: rgb(97, 96, 96);
   }
   h1, h2 {
     color: #067bc2;
@@ -150,6 +154,18 @@
   .btn {
     margin-top: 8px;
     margin-bottom: 40px;
+  }
+  .status-yes {
+    background: green;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+  }
+  .status-wait {
+    background: #ffd100;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
   }
 }
 
@@ -178,15 +194,14 @@
 .display-comments {
   background-color: white;
   margin-top: 50px;
-  padding: 15px;
-  border: 3px solid #067bc2;
   p {
     display: inline;
   }
 }
-
-.row {
-  display: inline;
-  // flex-direction: row;
-  justify-content: space-between;
+.comment {
+  border: 2px solid $blue;
+  padding: 10px 8px;
+  span {
+    display: flex;
+  }
 }

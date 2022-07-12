@@ -1,34 +1,35 @@
 <div class="container">
-  <h1>Demande de réservation pour :</h1>
   <% if @bookings.empty? %>
     <div class="blank_page">
-      <h1>Aucun résultat</h1>
+      <h2>Aucun résultat</h2>
     </div>
   <% else %>
-    <% @bookings.each do |bkg| %>
+    <section class="my-demands">
+      <h2>Demande de réservation pour :</h2>
       <div class="grid-bookings">
-        <div class="card-books">
-          <h2><%= link_to bkg.flat.name, flat_path(bkg.flat) %></h2>
-          <p>Début : <%= bkg.arrival.strftime('%d/%m/%Y') %></p>
-          <p>Fin : <%= bkg.departure .strftime('%d/%m/%Y')%></p>
-          <p>Durée : <%= @days = (bkg.arrival..bkg.departure).count %> jours</p>
-          <% @price = bkg.flat.daily_price %>
-          <p>Montant : <%= @days * @price %>€</p>
-          <% if bkg.accepted %>
-            <h4>Réservation acceptée</h4>
-          <% elsif bkg.accepted == false %>
-            <%= link_to "Supprimer", (bkg), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
-          <% else %>
-            <%= simple_form_for([@flat, bkg], :method => :patch) do |f| %>
-              <div class="valid-booking">
-                <%= f.collection_radio_buttons :accepted, [[false, 'Refuser'], [true, 'Accepter']], :first, :last %>
-              <%# , label: "Acceptez-vous cette réservation?" %>
-              </div>
-              <%= f.submit "Valider", class: "btn btn-primary" %>
-            <% end %>
-          <% end %>
-        </div>
+        <% @bookings.each do |bkg| %>
+            <div class="card-books">
+              <h2><%= link_to bkg.flat.name, flat_path(bkg.flat) %></h2>
+              <p>Début : <%= bkg.arrival.strftime('%d/%m/%Y') %></p>
+              <p>Fin : <%= bkg.departure .strftime('%d/%m/%Y')%></p>
+              <p>Durée : <%= @days = (bkg.arrival..bkg.departure).count %> nuits</p>
+              <% @price = bkg.flat.daily_price %>
+              <p>Montant : <%= @days * @price %>€</p>
+              <% if bkg.accepted %>
+                <h4>Réservation acceptée</h4>
+              <% elsif bkg.accepted == false %>
+                <%= link_to "Supprimer", (bkg), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
+              <% else %>
+                <%= simple_form_for([@flat, bkg], :method => :patch) do |f| %>
+                  <div class="valid-booking">
+                    <%= f.collection_radio_buttons :accepted, [[false, 'Refuser'], [true, 'Accepter']], :first, :last %>
+                  </div>
+                  <%= f.submit "Valider", class: "btn btn-primary" %>
+                <% end %>
+              <% end %>
+            </div>
+        <% end %>
       </div>
-    <% end %>
+    </section>
   <% end %>
 </div>

@@ -4,15 +4,15 @@
 
 <div class="container">
 
-  <div class="img-show">
+  <section class="img-show">
     <% if @flat.photo.attached? %>
       <%= cl_image_tag @flat.photo.key, height: 600, width: 1200, crop: :fill %>
     <% else %>
       <%= image_tag "default_flat.jpg", crop: :fill%>
     <% end %>
-  </div>
+  </section>
 
-  <div class="infos-show">
+  <section class="infos-show">
     <div class="text">
       <h3><i class="fa-solid fa-feather-pointed"></i> Informations :</h3>
       <div class="trix-content">
@@ -35,9 +35,9 @@
         <h3><i class="fa-solid fa-map-location-dot"></i> Propriétaire :</h3> &nbsp <p><%= @flat.user.username.capitalize %></p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="map-booking">
+  <section class="map-booking">
     <div class="bloc-map">
       <div id="map" style="margin-top: 15px; height: 500px; border-radius: 10px;"
         data-controller="mapbox"
@@ -63,29 +63,33 @@
         </div>
       <% end %>
     </div>
-  </div>
+  </section>
 
-  <div class="new-comment">
+  <section class="new-comment">
     <%= simple_form_for [@flat, @comment] do |f| %>
       <%= f.input :message, label: "Votre avis", as: :rich_text_area, html5: true %>
       <%= f.submit "Publier", class: "btn btn-primary" %>
     <% end %>
-  </div>
+  </section>
 
-  <div class="display-comments">
+  <section class="display-comments">
     <div class="cards-index">
     <% if @comments.empty? %>
       <h4>Soyez le premier à donner votre avis</h4>
     <% else %>
         <% @comments.each do |comment| %>
-        <div class="row">
-          <%# <%= comment.user.username %>
-          <p><i class="fa-solid fa-quote-left"></i><%= comment.message %><i class="fa-solid fa-quote-right"></i></p>
+        <div class="comment">
+          <span>
+            <p><i class="fa-solid fa-quote-left"></i>
+            <%= comment.message %>
+            <i class="fa-solid fa-quote-right"></i></p>
+          </span>
+          <em><%= comment.user.username %></em>
         </div>
         <% end %>
       <% end %>
     </div>
-  </div>
+  </section>
 </div>
 
 <%# ----------------------------- FLATPICKR ------------------------------------------------------- %>
