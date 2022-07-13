@@ -2,8 +2,7 @@
   margin-top: 75px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
+  justify-content: space-around;
   .bloc-map {
     width: 60%;
     h4 {
@@ -20,22 +19,52 @@
   }
 }
 
+@media (min-width: 100px) and (max-width: 767px) {
+  .map-booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .bloc-map {
+      width: 90%;
+    }
+    .bloc-booking {
+      width: 90%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .map-booking {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .bloc-map {
+      width: 60%;
+    }
+    .bloc-booking {
+      width: 30%;
+    }
+  }
+}
+
+
 .fa-arrow-alt-circle-left {
   margin-top: 40px;
   font-size: 25px;
 }
 
-// --------------------------------
+// -------------------------------------------------------
+
 .img-show {
   text-align: center;
   img {
-    width: 85%;
-    height: 550px;
+    width: 90%;
+    height: auto;
     border-radius: 2%;
+    object-fit: cover;
   }
 }
 
-// ----------------
 .infos-show {
   display: flex;
   justify-content: center;
@@ -46,7 +75,6 @@
   }
   i {
     color: #ffd100;
-    // background-color: #067bc2;
   }
   p, h3 {
     font-size: 22px;
