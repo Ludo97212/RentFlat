@@ -3,7 +3,6 @@
 </div>
 
 <div class="container">
-
   <section class="img-show">
     <% if @flat.photo.attached? %>
       <%= cl_image_tag @flat.photo.key, height: 600, width: 1200, crop: :fill %>

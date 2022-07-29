@@ -1,5 +1,7 @@
 <div class="container">
-  <h1>Modification de l'offre</h1>
-  <%= render 'form', product: @flat %>
-  <%= link_to 'Annuler', flat_path, class: "btn btn-warning", style: "margin-top: 40px" %>
+  <div class="form-flat">
+    <h2>Modification de l'offre</h2>
+    <%= render 'form', product: @flat %>
+    <%= link_to 'Annuler', flat_path, class: "btn btn-warning" %>
+  </div>
 </div>

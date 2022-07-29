@@ -28,6 +28,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if user_signed_in? %>
                 <%= link_to "Mes Apparts' à louer", my_flats_path, class: "dropdown-item" %>
+                <%= link_to "Ajouter une offre", new_flat_path, class: "dropdown-item" %>
                 <%= link_to "Mes Reservations", my_bookings_path, class: "dropdown-item" %>
                 <%= link_to "Mes Demandes", my_demands_path, class: "dropdown-item" %>
                 <%= link_to "Modifier profil", edit_user_registration_path, class: "dropdown-item" %>
