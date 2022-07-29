@@ -1,21 +1,19 @@
-<div class="container">
-  <%= simple_form_for(@flat) do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= simple_form_for(@flat) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <div class="form-inputs">
-      <%= f.input :name, label: "Nom de l'appartement" %>
-      <%= f.input :address, label: "Adresse",
-                input_html: { data: { geocoder_target: "address" }, class: "d-none" },
-                wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :name, label: "Nom de l'appartement" %>
+    <%= f.input :address, label: "Adresse",
+              input_html: { data: { geocoder_target: "address" }, class: "d-none" },
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
     <%= f.input :daily_price, label: "Prix à la journée" %>
     <%= f.input :area, label: "Superficie" %>
     <%= f.input :beds, label: "Nombre de chambres" %>
     <%= f.input :description, label: "Description détaillée", as: :rich_text_area, html5: true %>
     <%= f.input :photo, as: :file, label: "Photo de l'appartement" %>
-    <div class="form-actions">
-      <%= f.button :submit, "Confirmer !", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-</div>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Confirmer !", class: "btn btn-primary" %>
+  </div>
+<% end %>

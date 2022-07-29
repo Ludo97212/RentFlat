@@ -17,22 +17,26 @@
 @import "./actiontext.scss";
 @import "actiontext.scss";
 
+// To let the FOOTER at the bottom but not fixed-down when screen height > 100vh
+html {
+  height: 100%;
+}
 body {
   background-color: rgb(250, 250, 250);
-  // min-height: calc(100vh - 100px);
-  // margin-bottom: 100px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+.container {
+  margin-bottom: min(50px);
+}
+// -----------------------------------------------------------------------------
+
 .btn {
   border-radius: 15px;
 }
 
 .valid-booking {
-  // input {
-  //   margin: 0;
-  //   font-family: inherit;
-  //   font-size: inherit;
-  //   position: absolute;
-  // }
   label.collection_radio_buttons {
     border-radius: 10px;
     margin: 7px;
