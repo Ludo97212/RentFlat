@@ -7,17 +7,19 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
+      <%= f.input :email, required: true, autofocus: true,
                   input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  input_html: { autocomplete: "new-password" }, label: "Mot de passe" %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" }, label: "Confirmer mot de passe" %>
-      <%= f.input  :username, label: "Pseudo" %>
+      <%= f.input :first_name, required: true, autofocus: true,
+                  input_html: { autocomplete: "first_name" }, label: "Prenom" %>
+      <%= f.input :last_name, required: true, autofocus: true,
+                  input_html: { autocomplete: "name" }, label: "Nom" %>
+      <%= f.input :password, required: true, label: "Mot de passe" %>
+      <%= f.input :password_confirmation, required: true, label: "Confirmer mot de passe" %>
+      <%= f.input  :username, label: "Pseudo",
+                  input_html: { autocomplete: "username" }%>
+      <%= f.input :phone_number, autofocus: true,
+                  input_html: { autocomplete: "tel" }, label: "Telephone",
+                  hint: "Non obligatoire" %>
       <%= f.input :avatar, as: :file %>
     </div>
   <br>
