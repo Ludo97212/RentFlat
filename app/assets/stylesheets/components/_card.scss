@@ -190,19 +190,34 @@
   }
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
 }
+// ----------- COMMENTS ------------------
 
 .display-comments {
   background-color: white;
   margin-top: 50px;
-  p {
-    display: inline;
+  border: 5px solid $gold;
+  h4 {
+    margin: 5px;
   }
 }
 .comment {
-  border: 2px solid $blue;
+  border-bottom: 1px dashed $gold;
   padding: 10px 8px;
-  span {
+  .message {
     display: flex;
+    flex-direction: row;
+  }
+  .fa-solid {
+    color: $blue;
+    margin: 0px 5px;
+  }
+  .username {
+    color: $blue;
+    font-style: italic;
+    font-weight: 500;
+    margin: 0 15px 0 0 ;
+    text-align: right;
   }
 }

@@ -72,22 +72,20 @@
   </section>
 
   <section class="display-comments">
-    <div class="cards-index">
     <% if @comments.empty? %>
       <h4>Soyez le premier à donner votre avis</h4>
     <% else %>
         <% @comments.each do |comment| %>
-        <div class="comment">
-          <span>
-            <p><i class="fa-solid fa-quote-left"></i>
-            <%= comment.message %>
-            <i class="fa-solid fa-quote-right"></i></p>
-          </span>
-          <em><%= comment.user.username %></em>
-        </div>
+          <div class="comment">
+            <div class="message">
+              <i class="fa-solid fa-quote-left"></i>
+              <%= comment.message %>
+              <i class="fa-solid fa-quote-right"></i>
+            </div>
+            <p class="username"><%= comment.user.username %></p>
+          </div>
         <% end %>
-      <% end %>
-    </div>
+    <% end %>
   </section>
 </div>
 
