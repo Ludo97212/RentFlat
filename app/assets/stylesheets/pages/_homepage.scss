@@ -1,16 +1,11 @@
-.recents-flats {
-  margin-bottom: 30px;
+.recents-flats, .cities {
   h2 {
     color: $blue;
-    margin-bottom: 15px;
   }
 }
 
-.cities {
-  h2 {
-    color: $blue;
-    margin-bottom: 15px;
-  }
+.recents-flats {
+  margin-top: 80px;
 }
 
 .index-link {

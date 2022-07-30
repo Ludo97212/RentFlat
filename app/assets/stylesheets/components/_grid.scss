@@ -5,23 +5,16 @@
 // Smallest device
 
 .flat-grid {
+  // card-flat has auto-width, 3 to 1 image : Big image for cells/tablets
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  // grid-template-columns: repeat(auto-fit, 400px);
+  grid-gap: 20px;
+  justify-content: space-evenly;
+  margin: 25px 0;
 }
-@media (min-width: 100px) and (max-width: 575px) {
+@media (min-width: 100px) {
   .flat-grid {
     grid-template-columns: 1fr;
-  }
-}
-@media (min-width: 576px) {
-  .flat-grid {
-    grid-template-columns: 1fr;
-  }
-}
-@media (min-width: 768px) {
-  .flat-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
 @media (min-width: 992px) {
@@ -109,32 +102,11 @@
 // ----------------------------------------------------
 
 .cities-grid {
+  margin: 25px 0 80px 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 25px;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-gap: 20px;
+  justify-content: space-evenly;
+  // justify-items: stretch;
 }
-@media (min-width: 100px) and (max-width: 575px) {
-  .cities-grid {
-    grid-template-columns: 1fr;
-  }
-}
-@media (min-width: 576px) {
-  .cities-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 768px) {
-  .cities-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media (min-width: 992px) {
-  .cities-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media (min-width: 1200px) {
-  .cities-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
+// AUTO-FIT with card's width replace media queries !!!
