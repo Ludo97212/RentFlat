@@ -6,10 +6,10 @@ class User < ApplicationRecord
 
   validates_confirmation_of :password
   validates_presence_of :password, on: :create
-  validates :password, length: { minimum: 8, maximum: 50 }
-  validates :email, uniqueness: true, presence: true
-  validates :username, uniqueness: true, presence: true
-  validates :username, length: { in: 5..50 }
+  validates :password, length: { minimum: 8, maximum: 50 }, on: :create
+  validates :email, :username, :first_name, :last_name, presence: true
+  validates :email, :username, uniqueness: true
+  validates :username, length: { in: 4..50 }
 
   # ^(?=.*[A-Z])(?=.*[?!@#$&*,;:ù%.§µ£¤])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,20}$
   # /\A([^\}\{\]\[@\s\,]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
