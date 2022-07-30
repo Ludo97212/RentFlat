@@ -5,7 +5,7 @@
 <div class="container">
   <section class="img-show">
     <% if @flat.photo.attached? %>
-      <%= cl_image_tag @flat.photo.key, height: 600, width: 1200, crop: :fill %>
+      <%= cl_image_tag @flat.photo.key, crop: :fill %>
     <% else %>
       <%= image_tag "default_flat.jpg", crop: :fill%>
     <% end %>
@@ -38,7 +38,7 @@
 
   <section class="map-booking">
     <div class="bloc-map">
-      <div id="map" style="margin-top: 15px; height: 500px; border-radius: 10px;"
+      <div id="map"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @marker.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -46,7 +46,7 @@
     </div>
     <div class="bloc-booking">
       <% if @flat.user != current_user %>
-        <div class="new-booking" style="margin-top: 50px">
+        <div class="new-booking">
           <%= simple_form_for [@flat, @booking] do |f| %>
             <%= f.input :arrival, as: :date, html5: true, label: false,
                           input_html: { id: "range_start", class: "d-none" } %>
@@ -56,7 +56,7 @@
           <% end %>
         </div>
       <% else %>
-        <div style="margin-top: 50px">
+        <div class="new-booking">
           <%= link_to "Modifier les informations", edit_flat_path(@flat), class: "btn btn-warning" %>
           <%= link_to "Supprimer cette offre !", flat_path(@flat), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
         </div>

@@ -4,6 +4,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: auto;
+  // Responsive Width through Grid fractions
   img {
     height: 350px;
     width: 100%;
@@ -171,7 +172,7 @@
 
 // --------------------------------------
 
-.card-category {
+.card-city {
   // background-image: url("paris.jpg");
   background-size: cover;
   background-position: center;
