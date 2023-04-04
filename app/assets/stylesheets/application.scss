@@ -26,6 +26,34 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  h1,h2,h3,h4,h5,h6 {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    p, a {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 1em;
+    }
+    h1 {
+      text-transform: uppercase;
+      text-align: center;
+      color: $red;
+      font-size: 2.5em;
+    }
+    h2 {
+      font-size: 2em;
+    }
+    h3 {
+      font-size: 1.6em;
+    }
+    h4 {
+      font-size: 1.4em;
+    }
+    h5 {
+      font-size: 1.2em;
+    }
+    h6 {
+      font-size: 1em;
+    }
 }
 .container {
   margin-bottom: min(50px);

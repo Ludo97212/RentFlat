@@ -1,20 +1,28 @@
-<div class="footer">
-  <section class="dropup">
-    <button class="dropbtn">Réseaux</button>
-    <div class="dropup-content">
+<footer>
+  <section class="footer-section">
+    <h4 class="footer-header">Informations</h4>
+    <p>@RentAFlat 2023</p>
+    <%= link_to "Mentions Légales","/infos" %>
+    <%= link_to "CGV","/infos" %>
+    <%= link_to "Politique de confidentialité","/infos" %>
+  </section>
+
+  <section class="footer-section">
+    <h4 class="footer-header">Réseaux</h4>
+    <section class="footer-icons">
+      <%= link_to "","#", class: "fab fa-youtube" %>
       <%= link_to "","https://www.linkedin.com/in/ludovic-nourel/", class: "fab fa-linkedin", target: :_blank, rel: 'noopener' %>
-      <%= link_to "","https://github.com/Ludo97212", class: "fab fa-github", target: :_blank, rel: 'noopener' %>
       <%= link_to "","#", class: "fab fa-instagram" %>
       <%= link_to "","#", class: "fab fa-facebook" %>
       <%= link_to "","#", class: "fab fa-twitter" %>
-    </div>
+    </section>
   </section>
 
-  <section>
-    <%= link_to "Mentions Légales","/infos", class: "cpr"%>
+  <section class="footer-section">
+    <h4 class="footer-header">Renseignements</h4>
+    <%= link_to "Contact", "/contacts" %>
+    <p>Bat 875, Rue des Affaires Etrangères, <br>75001, Paris, France</p>
+    <%= link_to "Plan du site","/infos" %>
+    <p></p>
   </section>
-
-  <section>
-    <%= link_to "Contacts", "/contacts", class: "cpr" %>
-  </section>
-</div>
+</footer>
