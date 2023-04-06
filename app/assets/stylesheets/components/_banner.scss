@@ -34,13 +34,14 @@
     .btn {
       border-radius: 15px;
       color: $gold;
-      background-color: #067bc2;
+      background-color: $blue;
       font-weight: bold;
-      border: 1px solid #095c8f;
+      border: none;
       width: 250px;
       margin-top: 35px;
       &:hover {
-        background-color: #58a3d2;
+        background-color: $gold;
+        color: white;
       }
     }
     .icon {

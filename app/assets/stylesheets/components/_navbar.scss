@@ -1,5 +1,9 @@
 .navbar-lewagon {
+  position: sticky;
+  top: 0;
+  width: 100%;
   background: $blue;
+  z-index: 100;
   .container-fluid {
     display: flex;
     justify-content: space-between;
@@ -19,6 +23,7 @@
     .navbar-header {
       font-size: 1.5em;
       font-weight: bold;
+      text-decoration: none;
       text-transform: uppercase;
     }
     .dropdown-item {

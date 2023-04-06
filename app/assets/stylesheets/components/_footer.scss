@@ -1,8 +1,6 @@
 footer {
-  display: flex;
-  justify-content: space-around;
   background: #067bc2;
-  padding: 12px 0px;
+  padding: 20px 0px;
   margin-top: auto;
   // position: fixed;
   // bottom: 0;
@@ -11,10 +9,17 @@ footer {
     display: flex;
     flex-direction: column;
     .footer-header {
+      margin-bottom: 10px;
       text-align: center;
+      font-weight: bold;
       color: $gold;
     }
+    .footer-icons {
+      align-self: center;
+    }
     .footer-icons a {
+      text-align: center;
+      font-size: 1.2em;
       margin: 0 5px;
     }
   }
@@ -24,12 +29,34 @@ footer {
     text-decoration: none;
     margin: 2px auto;
     &:hover {
-      color: rgb(228, 168, 30);
+      color: white;
     }
   }
   a {
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+
+@media (min-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 767px) {
+  footer {
+    footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      }
+      .footer-section {
+        padding-bottom: 30px;
+      }
   }
 }

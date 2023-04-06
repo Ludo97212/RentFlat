@@ -5,26 +5,29 @@
 
   <section class="index-flats">
     <% if @flats.empty? == false %>
-        <div class="flat-grid">
-          <% @flats.each do |flat| %>
-            <div class="card-flat">
-              <% if flat.photo.attached? %>
-                <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
-              <% else %>
-                <%= link_to image_tag("default_flat.jpg"), flat_path(flat) %>
-              <% end %>
-              <div class="card-flat-infos">
-                <div>
-                  <h2><%= link_to flat.name.upcase, flat_path(flat) %> </h2>
-                  <p><%= flat.address.capitalize %></p>
-                </div>
-                <h4 class="card-flat-pricing"><%= flat.daily_price %>€/nuit</h4>
+      <% if params[:query].present? %>
+        <p><%=  %> Résultat(s) pour : <%= params[:query].upcase  %></p>
+      <% end  %>
+      <div class="flat-grid">
+        <% @flats.each do |flat| %>
+          <div class="card-flat">
+            <% if flat.photo.attached? %>
+              <%= link_to cl_image_tag(flat.photo.key), flat_path(flat) %>
+            <% else %>
+              <%= link_to image_tag("default_flat.jpg"), flat_path(flat) %>
+            <% end %>
+            <div class="card-flat-infos">
+              <div>
+                <h2><%= link_to flat.name.upcase, flat_path(flat) %> </h2>
+                <p><%= flat.address.capitalize %></p>
               </div>
+              <h4 class="card-flat-pricing"><%= flat.daily_price %>€/nuit</h4>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+      </div>
     <% else %>
-      <h2>Aucun Résultat !</h2>
+      <h2>Aucun résultat trouvé !</h2>
     <% end %>
   </section>
 
